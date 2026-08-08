@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PT-One — the coach that carries you through it</title>
+<meta name="description" content="PT-One is a voice-guided training app for iPhone and Apple Watch. In TestFlight now.">
+<meta name="theme-color" content="#0F1414">
+<meta property="og:title" content="PT-One">
+<meta property="og:description" content="The coach that carries you through it.">
+<meta property="og:type" content="website">
+<style>
+  /* Brand tokens, lifted from the app's dark theme (themes.json) so the site and the app agree. */
+  :root{
+    --bg:#0F1414; --card:#1F2424; --text:#EDF5F5; --label:#ADDBDB;
+    --accent:#1AA6A5; --deep:#0F5252; --ember:#FF9500;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{overflow-x:hidden}
+  html,body{height:100%;max-width:100%}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center;
+    padding:32px 20px; position:relative; overflow-x:hidden;
+  }
+  /* the same soft accent bloom the carousels use, so the page feels part of the set */
+  body::after{
+    content:""; position:fixed; right:-30vw; bottom:-30vh; width:90vw; height:90vw; max-width:900px; max-height:900px;
+    border-radius:50%; pointer-events:none;
+    background:radial-gradient(circle, rgba(26,166,165,.15) 0%, rgba(26,166,165,0) 65%);
+  }
+  main{max-width:560px; width:100%; min-width:0; text-align:center; position:relative; z-index:1}
+  .mark{width:104px;height:104px;margin:0 auto 28px;display:block}
+  h1{font-size:clamp(44px,11vw,68px);font-weight:800;letter-spacing:-.025em;line-height:1}
+  h1 .one{color:var(--accent)}
+  .tag{margin-top:14px;font-size:clamp(17px,4.4vw,21px);font-weight:600;color:var(--label)}
+  .rule{height:2px;width:120px;margin:30px auto;border-radius:2px;
+        background:linear-gradient(90deg,var(--accent),rgba(26,166,165,0))}
+  .body{font-size:16px;line-height:1.6;color:var(--label);max-width:430px;margin:0 auto}
+  .body b{color:var(--text);font-weight:700}
+  .links{margin-top:34px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .links a{
+    display:inline-block;padding:11px 18px;border-radius:12px;
+    background:var(--card);color:var(--accent);text-decoration:none;
+    font-size:15px;font-weight:600;border:1px solid rgba(26,166,165,.22);
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .links a:hover{background:#263030;border-color:rgba(26,166,165,.5)}
+  footer{margin-top:38px;font-size:13px;color:var(--label);opacity:.7}
+  footer a{color:var(--label)}
+  @media (prefers-reduced-motion:no-preference){
+    main{animation:rise .5s ease-out both}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+<main>
+  <!-- The app icon's geometry, drawn rather than linked: white tile, thick teal ring, and the ember
+       seated in a CIRCULAR bite at the upper right. The bite is the detail that matters — an arc with
+       round caps reads cheap; the concave ends hugging the ball are what make it look engineered. -->
+  <svg class="mark" viewBox="0 0 180 180" role="img" aria-label="PT-One">
+    <defs>
+      <mask id="carve">
+        <rect width="180" height="180" fill="#000"/>
+        <circle cx="90" cy="90" r="58" fill="none" stroke="#fff" stroke-width="23.4"/>
+        <circle cx="131" cy="49" r="33.1" fill="#000"/>
+      </mask>
+      <radialGradient id="halo">
+        <stop offset="35%" stop-color="#FF9500" stop-opacity=".55"/>
+        <stop offset="100%" stop-color="#FF9500" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="180" height="180" rx="40" fill="#FFFFFF"/>
+    <rect width="180" height="180" rx="40" fill="#1AA6A5" mask="url(#carve)"/>
+    <circle cx="131" cy="49" r="67" fill="url(#halo)"/>
+    <circle cx="131" cy="49" r="27.9" fill="#FF9500"/>
+  </svg>
+
+  <h1>PT-<span class="one">One</span></h1>
+  <p class="tag">The coach that carries you through it.</p>
+
+  <div class="rule"></div>
+
+  <p class="body">
+    A voice-guided training app for iPhone and Apple&nbsp;Watch — it reads the session out,
+    times it and counts it, so the phone can stay in your pocket.
+    <b>In TestFlight now, public launch soon.</b>
+  </p>
+
+  <nav class="links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/support.html">Support</a>
+    <a href="mailto:ptoneadmin@gmail.com">Contact</a>
+  </nav>
+
+  <footer>&copy; 2026 PT-One · <a href="mailto:ptoneadmin@gmail.com">ptoneadmin@gmail.com</a></footer>
+</main>
+</body>
+</html>
