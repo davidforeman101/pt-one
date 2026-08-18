@@ -86,10 +86,11 @@
   .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
   .strip-in{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:22px 0}
   .stat{
-    text-align:center;padding:14px 8px;background:transparent;border:1px solid transparent;border-radius:16px;
-    cursor:pointer;font:inherit;color:inherit;transition:border-color .18s ease,transform .18s ease,background .18s ease;
+    text-align:center;padding:14px 8px;background:var(--card);border:1px solid var(--line);border-radius:16px;
+    cursor:pointer;font:inherit;color:inherit;box-shadow:0 6px 18px rgba(0,0,0,.25);
+    transition:border-color .18s ease,transform .18s ease,background .18s ease;
   }
-  .stat:hover,.stat:focus-visible{border-color:rgba(26,166,165,.5);background:rgba(26,166,165,.06);transform:scale(1.04);outline:none}
+  .stat:hover,.stat:focus-visible{border-color:rgba(26,166,165,.65);background:#243030;transform:scale(1.045);outline:none}
   .stat b{display:block;font-size:clamp(17px,1.9vw,22px);font-weight:800;letter-spacing:-.02em;color:var(--text)}
   .stat span{font-size:12.5px;color:var(--muted);font-weight:600;display:block;margin-top:2px}
   .stat .more{display:block;margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--accent);opacity:.75}
@@ -99,7 +100,8 @@
   /* ---------- the proof dialogs (zoomed border, lazy images) ---------- */
   dialog.proof{
     border:1.5px solid rgba(26,166,165,.55);border-radius:26px;background:var(--card);color:var(--text);
-    padding:0;max-width:min(720px,92vw);width:100%;box-shadow:0 40px 120px rgba(0,0,0,.7);
+    padding:0;max-width:min(680px,92vw);width:100%;box-shadow:0 40px 120px rgba(0,0,0,.7);
+    position:fixed;inset:0;margin:auto;max-height:min(86vh,760px);overflow:auto;   /* dead-centre of the page */
   }
   dialog.proof::backdrop{background:rgba(8,11,11,.72);backdrop-filter:blur(6px)}
   @media (prefers-reduced-motion:no-preference){
@@ -114,9 +116,11 @@
   .proof-close:hover{color:var(--text);border-color:rgba(26,166,165,.5)}
   .proof-in p{color:var(--label);font-size:15px;margin-top:10px}
   .proof-in p b{color:var(--text)}
-  .proof-shots{display:flex;gap:14px;margin-top:18px;justify-content:center;align-items:flex-start}
-  .proof-shots img{width:0;flex:1 1 0;max-width:200px;border-radius:16px;border:1px solid rgba(173,219,219,.16);box-shadow:0 14px 40px rgba(0,0,0,.45)}
-  .proof-shots img.wide{max-width:300px}
+  /* one physique + one app screenshot, side by side at matched height */
+  .proof-shots{display:flex;gap:14px;margin-top:18px;justify-content:center;align-items:stretch;height:min(320px,42vh)}
+  .proof-shots img{border-radius:16px;border:1px solid rgba(173,219,219,.16);box-shadow:0 14px 40px rgba(0,0,0,.45)}
+  .proof-shots .fig{flex:1 1 0;min-width:0;height:100%;object-fit:cover;object-position:top center}
+  .proof-shots .app{flex:none;height:100%;width:auto}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
 
   /* ---------- sections ---------- */
@@ -250,8 +254,8 @@
       </div>
     </div>
     <div class="hero-art reveal">
-      <div class="figure"><img src="assets/08_midpullup_lats_ember.jpg" alt="An athlete mid pull-up, working muscles glowing ember" width="928" height="1152" fetchpriority="high"></div>
-      <div class="app"><img src="assets/shot_coach.jpg" alt="PT-One's Coach tab — Petra greeting a 45-day streak" width="800" height="1739" loading="lazy"></div>
+      <div class="figure"><img src="assets/06_side_deadhang_pullup_teal.jpg" alt="An athlete in a dead hang on the pull-up bar" width="928" height="1152" fetchpriority="high"></div>
+      <div class="app"><img src="assets/shot_pullup_overload.jpg" alt="Pull-Up Normal Grip running in PT-One — sets ready, a suggested-reps nudge, the countdown live" width="800" height="1739" loading="lazy"></div>
     </div>
   </div>
 </div>
@@ -276,10 +280,10 @@
       <b>"Petra, log eight."</b> Done, mid-set, with chalk on your hands. Rests start themselves, timed sets tick
       themselves off, and the whole session runs from your wrist while the phone charges in another room.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_voice_commands.jpg" alt="Voice commands mid-session">
-      <img data-src="assets/shot_watch_session.jpg" alt="The session on Apple Watch" class="wide">
+      <img class="fig" data-src="assets/04_front_armscrossed_teal.jpg" alt="An athlete, arms crossed — hands free">
+      <img class="app" data-src="assets/shot_voice_commands.jpg" alt="Voice commands mid-session">
     </div>
-    <p class="proof-cap">Hands-free voice control, and the whole session on Apple Watch.</p>
+    <p class="proof-cap">Hands stay free — the voice does the logging, the timing and the answering.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-spoken">
@@ -289,10 +293,10 @@
       and tempo work counted out loud: <b>"down… two… three… drive up."</b> The screen can stay dark; the only
       thing you do is the exercise.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_floor_session.jpg" alt="A guided floor session, hold counting down">
-      <img data-src="assets/shot_tempo_detail.jpg" alt="Tempo — the rep's rhythm, set per exercise">
+      <img class="fig" data-src="assets/09_pushup_low_chest_ember.jpg" alt="An athlete at the bottom of a push-up, chest glowing ember">
+      <img class="app" data-src="assets/shot_floor_session.jpg" alt="A guided floor session, the hold counting down">
     </div>
-    <p class="proof-cap">A guided hold mid-count, and a tempo prescription Petra speaks.</p>
+    <p class="proof-cap">You hold the position; the voice holds the count.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-library">
@@ -301,11 +305,10 @@
     <p>Every move carries instruction, animation and muscle detail — searchable by name, muscle or kit,
       filtered to what you actually own. Point your camera at a machine and see every exercise it can do.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_exercises_dumbbell.jpg" alt="The library, filtered to dumbbells">
-      <img data-src="assets/shot_pulldown_detail.jpg" alt="One exercise's full detail — muscles, instruction, animation">
-      <img data-src="assets/shot_machine_search.jpg" alt="Photo search — snap a machine, get its exercises">
+      <img class="fig" data-src="assets/12_ohp_delts_ember.jpg" alt="An athlete pressing overhead, delts glowing ember">
+      <img class="app" data-src="assets/shot_pulldown_detail.jpg" alt="One exercise's full detail — muscles, instruction, animation">
     </div>
-    <p class="proof-cap">The library → one exercise's full detail → photo search on a machine.</p>
+    <p class="proof-cap">Every one of the 1,800+ carries this: instruction, animation, muscle detail.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-kit">
@@ -315,11 +318,10 @@
       piece of kit <b>and researches a set of exercises for it</b> — instructions, cues and muscle detail included —
       so it sits beside the built-in library like it was always there.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_kit_mace.jpg" alt="A photographed mace, now a real piece of kit">
-      <img data-src="assets/shot_mace_chat.jpg" alt="Petra building exercises around the mace">
-      <img data-src="assets/shot_mace_run.jpg" alt="A mace exercise running in a guided session">
+      <img class="fig" data-src="assets/10_squat_bottom_quads_ember.jpg" alt="An athlete deep in a squat, quads glowing ember">
+      <img class="app" data-src="assets/shot_kit_mace.jpg" alt="A photographed mace — now a real piece of kit with Petra's exercises">
     </div>
-    <p class="proof-cap">One photo of a mace → Petra's exercises → running in a real session.</p>
+    <p class="proof-cap">One photo of a mace → a real piece of kit, with exercises researched for it.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-allinone">
@@ -329,9 +331,8 @@
       Ready-made programs and sessions? <b>Got it.</b> Circuits, EMOM, AMRAP benchmarks? <b>Got it.</b>
       Gentle guided rehab? <b>That's where it began.</b> One app, all of it — and it's for you. And you. And you.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking">
-      <img data-src="assets/shot_ava_chat.jpg" alt="The AI coach designing a session">
-      <img data-src="assets/shot_sslp.jpg" alt="A ready-made program week">
+      <img class="fig" data-src="assets/11_deadlift_lockout_teal.jpg" alt="An athlete locking out a deadlift">
+      <img class="app" data-src="assets/shot_ava_chat.jpg" alt="The AI coach turning a request into a playable session">
     </div>
     <p class="proof-cap">The tracker, the coach, the programs — pick your app; it's the same app.</p>
   </div>
@@ -343,8 +344,8 @@
       No account to create, nothing to harvest. Even a question to Petra travels <b>nameless</b> and isn't kept.
       Your training data isn't our business model.</p>
     <div class="proof-shots">
-      <img data-src="assets/shot_pain.jpg" alt="Pain notes — the most personal data — stay on-device">
-      <img data-src="assets/shot_body.jpg" alt="Your body's data, shown plainly, kept privately">
+      <img class="fig" data-src="assets/03_front_standing_core_white.jpg" alt="An athlete standing, composed">
+      <img class="app" data-src="assets/shot_body.jpg" alt="Your body's data, shown plainly, kept privately">
     </div>
     <p class="proof-cap">The most personal data in any fitness app — and it never leaves your phone.</p>
   </div>
