@@ -82,13 +82,42 @@
     .hero-art .app{left:4%;bottom:-14px;width:min(160px,38%)}
   }
 
-  /* ---------- outcome strip ---------- */
+  /* ---------- outcome strip: six TAPPABLE proof tiles ---------- */
   .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2)}
-  .strip-in{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:26px 0}
-  .stat{text-align:center;padding:8px 6px}
-  .stat b{display:block;font-size:clamp(19px,2.4vw,25px);font-weight:800;letter-spacing:-.02em;color:var(--text)}
-  .stat span{font-size:13px;color:var(--muted);font-weight:600}
-  @media (max-width:760px){ .strip-in{grid-template-columns:repeat(2,1fr)} }
+  .strip-in{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;padding:22px 0}
+  .stat{
+    text-align:center;padding:14px 8px;background:transparent;border:1px solid transparent;border-radius:16px;
+    cursor:pointer;font:inherit;color:inherit;transition:border-color .18s ease,transform .18s ease,background .18s ease;
+  }
+  .stat:hover,.stat:focus-visible{border-color:rgba(26,166,165,.5);background:rgba(26,166,165,.06);transform:scale(1.04);outline:none}
+  .stat b{display:block;font-size:clamp(17px,1.9vw,22px);font-weight:800;letter-spacing:-.02em;color:var(--text)}
+  .stat span{font-size:12.5px;color:var(--muted);font-weight:600;display:block;margin-top:2px}
+  .stat .more{display:block;margin-top:6px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--accent);opacity:.75}
+  @media (max-width:960px){ .strip-in{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:620px){ .strip-in{grid-template-columns:repeat(2,1fr)} }
+
+  /* ---------- the proof dialogs (zoomed border, lazy images) ---------- */
+  dialog.proof{
+    border:1.5px solid rgba(26,166,165,.55);border-radius:26px;background:var(--card);color:var(--text);
+    padding:0;max-width:min(720px,92vw);width:100%;box-shadow:0 40px 120px rgba(0,0,0,.7);
+  }
+  dialog.proof::backdrop{background:rgba(8,11,11,.72);backdrop-filter:blur(6px)}
+  @media (prefers-reduced-motion:no-preference){
+    dialog.proof[open]{animation:zoomIn .28s cubic-bezier(.2,.9,.3,1.2)}
+    @keyframes zoomIn{from{transform:scale(.9);opacity:0;border-color:var(--accent)}to{transform:none;opacity:1}}
+  }
+  .proof-in{padding:26px 26px 24px}
+  .proof-head{display:flex;align-items:flex-start;gap:14px}
+  .proof-head h3{font-size:22px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
+  .proof-close{margin-left:auto;flex:none;width:34px;height:34px;border-radius:99px;border:1px solid var(--line);
+    background:var(--bg2);color:var(--label);font-size:16px;font-weight:700;cursor:pointer}
+  .proof-close:hover{color:var(--text);border-color:rgba(26,166,165,.5)}
+  .proof-in p{color:var(--label);font-size:15px;margin-top:10px}
+  .proof-in p b{color:var(--text)}
+  .proof-shots{display:flex;gap:14px;margin-top:18px;justify-content:center;align-items:flex-start}
+  .proof-shots img{width:0;flex:1 1 0;max-width:200px;border-radius:16px;border:1px solid rgba(173,219,219,.16);box-shadow:0 14px 40px rgba(0,0,0,.45)}
+  .proof-shots img.wide{max-width:300px}
+  .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
 
   /* ---------- sections ---------- */
   section{padding:88px 0;scroll-margin-top:66px}
@@ -221,21 +250,105 @@
       </div>
     </div>
     <div class="hero-art reveal">
-      <div class="figure"><img src="assets/06_side_deadhang_pullup_teal.jpg" alt="An athlete in a dead hang, mid pull-up" width="928" height="1152" fetchpriority="high"></div>
+      <div class="figure"><img src="assets/08_midpullup_lats_ember.jpg" alt="An athlete mid pull-up, working muscles glowing ember" width="928" height="1152" fetchpriority="high"></div>
       <div class="app"><img src="assets/shot_coach.jpg" alt="PT-One's Coach tab — Petra greeting a 45-day streak" width="800" height="1739" loading="lazy"></div>
     </div>
   </div>
 </div>
 
-<!-- ================= OUTCOME STRIP ================= -->
+<!-- ================= OUTCOME STRIP — six tappable proofs ================= -->
 <div class="strip">
   <div class="wrap strip-in">
-    <div class="stat"><b>Every rep</b><span>spoken &amp; timed for you</span></div>
-    <div class="stat"><b>1,500+</b><span>exercises, matched to your kit</span></div>
-    <div class="stat"><b>Zero taps</b><span>mid-session — hands stay free</span></div>
-    <div class="stat"><b>100% yours</b><span>data on-device, no account</span></div>
+    <button class="stat" data-proof="p-zerotaps"><b>Zero taps</b><span>mid-session — hands stay free</span><span class="more">SEE IT</span></button>
+    <button class="stat" data-proof="p-spoken"><b>Every rep</b><span>spoken &amp; timed for you</span><span class="more">SEE IT</span></button>
+    <button class="stat" data-proof="p-library"><b>1,800+</b><span>exercises, matched to your kit</span><span class="more">SEE IT</span></button>
+    <button class="stat" data-proof="p-kit"><b>Snap your kit</b><span>Petra builds the exercises</span><span class="more">SEE IT</span></button>
+    <button class="stat" data-proof="p-allinone"><b>All-in-one</b><span>tracker to AI coach — your pick</span><span class="more">SEE IT</span></button>
+    <button class="stat" data-proof="p-yours"><b>100% yours</b><span>data on-device, no account</span><span class="more">SEE IT</span></button>
   </div>
 </div>
+
+<!-- The six proof dialogs — images are lazy, loading only when a tile is opened. -->
+<dialog class="proof" id="p-zerotaps">
+  <div class="proof-in">
+    <div class="proof-head"><h3>Zero taps. Genuinely zero.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>Frictionless logging is table stakes for a great gym app — PT-One matched it, then removed the last tap.
+      <b>"Petra, log eight."</b> Done, mid-set, with chalk on your hands. Rests start themselves, timed sets tick
+      themselves off, and the whole session runs from your wrist while the phone charges in another room.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_voice_commands.jpg" alt="Voice commands mid-session">
+      <img data-src="assets/shot_watch_session.jpg" alt="The session on Apple Watch" class="wide">
+    </div>
+    <p class="proof-cap">Hands-free voice control, and the whole session on Apple Watch.</p>
+  </div>
+</dialog>
+<dialog class="proof" id="p-spoken">
+  <div class="proof-in">
+    <div class="proof-head"><h3>It speaks. You move.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>Every exercise announced with a form cue, every rep and hold timed, both sides guided one at a time —
+      and tempo work counted out loud: <b>"down… two… three… drive up."</b> The screen can stay dark; the only
+      thing you do is the exercise.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_floor_session.jpg" alt="A guided floor session, hold counting down">
+      <img data-src="assets/shot_tempo_detail.jpg" alt="Tempo — the rep's rhythm, set per exercise">
+    </div>
+    <p class="proof-cap">A guided hold mid-count, and a tempo prescription Petra speaks.</p>
+  </div>
+</dialog>
+<dialog class="proof" id="p-library">
+  <div class="proof-in">
+    <div class="proof-head"><h3>1,800+ exercises, all of them real.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>Every move carries instruction, animation and muscle detail — searchable by name, muscle or kit,
+      filtered to what you actually own. Point your camera at a machine and see every exercise it can do.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_exercises_dumbbell.jpg" alt="The library, filtered to dumbbells">
+      <img data-src="assets/shot_pulldown_detail.jpg" alt="One exercise's full detail — muscles, instruction, animation">
+      <img data-src="assets/shot_machine_search.jpg" alt="Photo search — snap a machine, get its exercises">
+    </div>
+    <p class="proof-cap">The library → one exercise's full detail → photo search on a machine.</p>
+  </div>
+</dialog>
+<dialog class="proof" id="p-kit">
+  <div class="proof-in">
+    <div class="proof-head"><h3>Buy it. Snap it. Train with it.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>New kit the library's never heard of? Take a photo and tell Petra what it is. She turns it into a real
+      piece of kit <b>and researches a set of exercises for it</b> — instructions, cues and muscle detail included —
+      so it sits beside the built-in library like it was always there.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_kit_mace.jpg" alt="A photographed mace, now a real piece of kit">
+      <img data-src="assets/shot_mace_chat.jpg" alt="Petra building exercises around the mace">
+      <img data-src="assets/shot_mace_run.jpg" alt="A mace exercise running in a guided session">
+    </div>
+    <p class="proof-cap">One photo of a mace → Petra's exercises → running in a real session.</p>
+  </div>
+</dialog>
+<dialog class="proof" id="p-allinone">
+  <div class="proof-in">
+    <div class="proof-head"><h3>Whatever app you came for, it's in here.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>A pure gym tracker, nothing else? <b>Got it.</b> An AI coach to design, track and push you? <b>Got it.</b>
+      Ready-made programs and sessions? <b>Got it.</b> Circuits, EMOM, AMRAP benchmarks? <b>Got it.</b>
+      Gentle guided rehab? <b>That's where it began.</b> One app, all of it — and it's for you. And you. And you.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking">
+      <img data-src="assets/shot_ava_chat.jpg" alt="The AI coach designing a session">
+      <img data-src="assets/shot_sslp.jpg" alt="A ready-made program week">
+    </div>
+    <p class="proof-cap">The tracker, the coach, the programs — pick your app; it's the same app.</p>
+  </div>
+</dialog>
+<dialog class="proof" id="p-yours">
+  <div class="proof-in">
+    <div class="proof-head"><h3>On your device. Under your Apple ID. Full stop.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>Sessions, history, pain notes — all of it lives on your iPhone, backed up sealed to your Apple ID.
+      No account to create, nothing to harvest. Even a question to Petra travels <b>nameless</b> and isn't kept.
+      Your training data isn't our business model.</p>
+    <div class="proof-shots">
+      <img data-src="assets/shot_pain.jpg" alt="Pain notes — the most personal data — stay on-device">
+      <img data-src="assets/shot_body.jpg" alt="Your body's data, shown plainly, kept privately">
+    </div>
+    <p class="proof-cap">The most personal data in any fitness app — and it never leaves your phone.</p>
+  </div>
+</dialog>
 
 <!-- ================= HANDS-FREE ================= -->
 <section id="handsfree">
@@ -323,6 +436,24 @@
       <div><b>No streak guilt</b><p>Take a week off and your streak <em>bridges it</em>. Time away is life, not failure — challenges pause and extend instead of collapsing.</p></div>
       <div><b>No made-up scores</b><p>If a number would be a guess, we don't show the number. Plain figures, real evidence, and a recovery clock <em>you</em> control.</p></div>
       <div><b>No dark patterns</b><p>No nagging, no fake urgency, no "one weird trick". We'd rather under-promise than over-coach — the honesty <em>is</em> the brand.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVERYTHING TO EVERYONE ================= -->
+<section id="allofit" style="padding:76px 0">
+  <div class="wrap reveal" style="text-align:center">
+    <div class="kicker2">One app, every trainer</div>
+    <h2>Whatever app you came for,<br>it's in here.</h2>
+    <p class="sub" style="margin-left:auto;margin-right:auto">Most apps make you choose: the tracker <i>or</i> the coach <i>or</i> the plans.
+      PT-One is all of them at once — use the part that's yours and ignore the rest.</p>
+    <div class="creed" style="grid-template-columns:repeat(3,1fr)">
+      <div><b>"Just a gym tracker."</b><p>Got it. Sets, weights, rests, supersets, PRs and history — logging as frictionless as it gets, then one tap quicker: your voice.</p></div>
+      <div><b>"An AI that coaches me."</b><p>Got it. Petra designs sessions, adjusts plans, checks your form and explains every number — and hands the wheel straight back.</p></div>
+      <div><b>"Ready-made plans."</b><p>Got it. Programs with the maths done, targets with the route drawn, challenges with a month's shape — press play.</p></div>
+      <div><b>"Circuits, EMOM, AMRAP."</b><p>Got it. Every format spoken and scored, benchmarks included.</p></div>
+      <div><b>"Gentle guided rehab."</b><p>That's where PT-One began — and it's still the heart of it.</p></div>
+      <div><b>"All of the above."</b><p>That's the point. All gym apps for all people, in one — for you. And you. And you.</p></div>
     </div>
   </div>
 </section>
@@ -422,7 +553,7 @@
     <div class="split">
       <div class="reveal">
         <div class="kicker2">The library &amp; your kit</div>
-        <h2>1,500+ exercises. Filtered to what you actually own.</h2>
+        <h2>1,800+ exercises. Filtered to what you actually own.</h2>
         <p class="sub">Tell PT-One what you've got — a full rack, a pair of dumbbells, or nothing but floor —
           and everything adjusts: sessions built from your kit, swaps suggested from your kit, nothing
           prescribed that you can't actually do. Hotel gym this week? Say so, and the plan reshapes itself.</p>
@@ -439,12 +570,19 @@
     </div>
     <div class="grid">
       <div class="card reveal">
-        <div class="shot"><img src="assets/shot_kit_mace.jpg" alt="A custom piece of kit with exercises built for it" loading="lazy"></div>
-        <div class="txt"><h3>Custom exercises &amp; kit</h3><p>Own a mace, an odd machine, a move we don't have? Add your own — photos, instructions, muscles — and it sits beside the library, every bit as real. Petra can even build moves around your kit.</p></div>
+        <div class="shot"><img src="assets/shot_kit_mace.jpg" alt="A photographed mace, now a real piece of kit with exercises" loading="lazy"></div>
+        <div class="txt">
+          <div class="pillrow"><span class="pill emb">SNAP → PETRA → TRAIN</span></div>
+          <h3>Custom kit, built from a photo</h3><p>Bought something the library's never heard of? Photograph it and tell Petra what it is — she makes it a real piece of kit and researches a set of exercises for it, muscles and instructions included. It won't feel bolted-on, because it isn't.</p></div>
       </div>
       <div class="card reveal">
         <div class="shot"><img src="assets/shot_gyms.jpg" alt="Home, commercial and travel gyms" loading="lazy"></div>
-        <div class="txt"><h3>Your gyms</h3><p>Home rack, full gym, hotel basement, or nothing at all — tell PT-One where you're training and every session reshapes to the kit that's there.</p></div>
+        <div class="txt"><h3>Your gyms, from photos</h3><p>Snap your garage or the hotel basement and Petra lists what's in view — your gym builds itself. Home rack, full gym, or nothing at all: every session reshapes to the kit that's actually there.</p></div>
+      </div>
+      <div class="card text-only reveal">
+        <div class="txt">
+          <div class="pillrow"><span class="pill">TORCH</span></div>
+          <h3>Find anything, instantly</h3><p>Pull down on any main screen and search the whole app — exercises, kit, programs, settings, even "where do I change the wake word?" Torch takes you there and lights up the exact control when you land.</p></div>
       </div>
       <div class="card reveal">
         <div class="shot"><img src="assets/shot_mum_share.jpg" alt="Sharing a session as a QR code" loading="lazy"></div>
@@ -553,6 +691,20 @@
   addEventListener('scroll', spy, { passive: true });
   addEventListener('resize', spy);
   spy();
+
+  // Proof tiles → dialogs. Images inside carry data-src and only load when their dialog first opens.
+  document.querySelectorAll('.stat[data-proof]').forEach(tile => {
+    tile.addEventListener('click', () => {
+      const d = document.getElementById(tile.dataset.proof);
+      if (!d) return;
+      d.querySelectorAll('img[data-src]').forEach(im => { im.src = im.dataset.src; im.removeAttribute('data-src'); });
+      d.showModal();
+    });
+  });
+  document.querySelectorAll('dialog.proof').forEach(d => {
+    d.querySelector('.proof-close').addEventListener('click', () => d.close());
+    d.addEventListener('click', e => { if (e.target === d) d.close(); });   // tap the backdrop to dismiss
+  });
 </script>
 </body>
 </html>
