@@ -70,7 +70,9 @@
   /* hero art: the athlete leads, the app rides along */
   .hero-art{position:relative;min-height:520px}
   .hero-art .figure{width:min(430px,92%);margin-left:auto;border-radius:28px;overflow:hidden;
-     border:1px solid rgba(173,219,219,.14);box-shadow:0 34px 90px rgba(0,0,0,.55)}
+     border:1px solid rgba(173,219,219,.14);box-shadow:0 34px 90px rgba(0,0,0,.55);
+     aspect-ratio:928/840}   /* frame ends at the waist — the crop is the wardrobe */
+  .hero-art .figure img{width:100%;height:100%;object-fit:cover;object-position:top}
   .hero-art .figure::after{content:"";position:absolute;inset:0;border-radius:28px;
      background:linear-gradient(200deg, transparent 55%, rgba(15,20,20,.55));pointer-events:none}
   .hero-art .app{position:absolute;left:0;bottom:-18px;width:min(190px,40%);border-radius:24px;overflow:hidden;
@@ -100,8 +102,8 @@
   /* ---------- the proof dialogs (zoomed border, lazy images) ---------- */
   dialog.proof{
     border:1.5px solid rgba(26,166,165,.55);border-radius:26px;background:var(--card);color:var(--text);
-    padding:0;max-width:min(680px,92vw);width:100%;box-shadow:0 40px 120px rgba(0,0,0,.7);
-    position:fixed;inset:0;margin:auto;max-height:min(86vh,760px);overflow:auto;   /* dead-centre of the page */
+    padding:0;max-width:min(860px,94vw);width:100%;box-shadow:0 40px 120px rgba(0,0,0,.7);
+    position:fixed;inset:0;margin:auto;max-height:92vh;overflow:auto;   /* dead-centre of the page */
   }
   dialog.proof::backdrop{background:rgba(8,11,11,.72);backdrop-filter:blur(6px)}
   @media (prefers-reduced-motion:no-preference){
@@ -116,11 +118,14 @@
   .proof-close:hover{color:var(--text);border-color:rgba(26,166,165,.5)}
   .proof-in p{color:var(--label);font-size:15px;margin-top:10px}
   .proof-in p b{color:var(--text)}
-  /* one physique + one app screenshot, side by side at matched height */
-  .proof-shots{display:flex;gap:14px;margin-top:18px;justify-content:center;align-items:stretch;height:min(320px,42vh)}
-  .proof-shots img{border-radius:16px;border:1px solid rgba(173,219,219,.16);box-shadow:0 14px 40px rgba(0,0,0,.45)}
-  .proof-shots .fig{flex:1 1 0;min-width:0;height:100%;object-fit:cover;object-position:top center}
-  .proof-shots .app{flex:none;height:100%;width:auto}
+  /* the physique full-bleed, the app screenshot angled + shadowed over it (the house composition) */
+  .proof-shots{position:relative;margin-top:20px}
+  .proof-shots .fig{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 22%;
+    border-radius:18px;border:1px solid rgba(173,219,219,.16)}
+  .proof-shots .app{position:absolute;right:20px;bottom:-18px;width:min(200px,32%);
+    transform:rotate(3deg);border-radius:18px;border:1px solid rgba(173,219,219,.25);
+    box-shadow:0 24px 60px rgba(0,0,0,.7);background:#000}
+  .proof-cap{margin-top:30px}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
 
   /* ---------- sections ---------- */
@@ -254,7 +259,7 @@
       </div>
     </div>
     <div class="hero-art reveal">
-      <div class="figure"><img src="assets/06_side_deadhang_pullup_teal.jpg" alt="An athlete in a dead hang on the pull-up bar" width="928" height="1152" fetchpriority="high"></div>
+      <div class="figure"><img src="assets/08_midpullup_lats_ember.jpg" alt="An athlete mid pull-up, working muscles glowing ember" width="928" height="1152" fetchpriority="high"></div>
       <div class="app"><img src="assets/shot_pullup_overload.jpg" alt="Pull-Up Normal Grip running in PT-One — sets ready, a suggested-reps nudge, the countdown live" width="800" height="1739" loading="lazy"></div>
     </div>
   </div>
