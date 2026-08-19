@@ -137,15 +137,18 @@
   .proof-shots.tall .app{width:min(250px,42%)}          /* taller canvas earns a bigger screenshot */
   .proof-shots.app-left .app{right:auto;left:20px;transform:rotate(-3deg)}   /* keep faces clear */
   /* the spoken command — plain quoted text at the bottom of the image, nothing bubble-ish */
-  .speech{position:absolute;left:0;right:0;bottom:0;padding:36px 18px 14px;text-align:left;
-    background:linear-gradient(180deg,transparent,rgba(10,14,14,.85));
-    font-size:19px;font-weight:800;color:var(--text);letter-spacing:-.01em}
+  .speech{position:absolute;left:0;right:0;bottom:0;padding:56px 20px 18px;text-align:left;
+    background:linear-gradient(180deg,transparent,rgba(10,14,14,.88));
+    font-size:clamp(24px,3.6vw,32px);font-weight:800;color:var(--text);letter-spacing:-.015em}
   .speech i{font-style:normal;color:var(--accent)}
-  /* .chat: the conversation IS the story — big and bold, no physique */
+  /* .chat: the conversation IS the story — big and bold; the mace rides its right edge, angled */
+  .proof-shots.chat{position:relative}
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
     border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 55px rgba(0,0,0,.55)}
-  .orphoto{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;color:var(--label);font-size:14.5px}
-  .orphoto img{width:64px;height:64px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .proof-shots.chat .mace{position:absolute;right:2%;bottom:-26px;width:min(185px,32%);
+    transform:rotate(4deg);border-radius:16px;border:1px solid rgba(173,219,219,.28);
+    box-shadow:0 24px 60px rgba(0,0,0,.75)}
+  .orphoto{margin-top:40px;text-align:right;padding-right:2%;color:var(--label);font-size:14.5px}
   .orphoto b{color:var(--text)}
   .proof-cap{margin-top:30px}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
@@ -306,9 +309,9 @@
     <p>Frictionless logging is table stakes for a great gym app — PT-One matched it, then removed the last tap.
       <b>"Petra, log eight."</b> Done, mid-set, with chalk on your hands. Rests start themselves, timed sets tick
       themselves off, and the whole session runs from your wrist while the phone charges in another room.</p>
-    <div class="proof-shots">
-      <img class="fig" data-src="assets/92_squat_speaking_f_gym.jpg" alt="A woman mid squat calling out a command, chalk in the air — her phone face-up on a bench, out of reach" style="object-position:center 32%">
-      <span class="speech">"<i>Petra</i> — 12 reps!"</span>
+    <div class="proof-shots tall">
+      <img class="fig" data-src="assets/92_squat_speaking_f_gym.jpg" alt="A woman mid squat calling out a command, chalk in the air — her phone face-up on a bench, out of reach" style="object-position:center 20%">
+      <span class="speech">"<i>Petra.</i> 12 Reps!"</span>
       <img class="app" data-src="assets/shot_voice_commands.jpg" alt="Voice commands mid-session">
     </div>
     <p class="proof-cap">Hands stay free — the voice does the logging, the timing and the answering.</p>
@@ -346,8 +349,9 @@
       three exercises written with instructions and muscle maps, built into a session. You add the photos.</p>
     <div class="proof-shots chat">
       <img class="chatimg" data-src="assets/mace_convo.jpg" alt="The whole conversation: a 10 kg steel mace added, three exercises written, a session saved">
-      <div class="orphoto"><img data-src="assets/93_steel_mace_still.jpg" alt="A steel mace against a dark gym wall"><span>…or just <b>take a photo of it</b> and let Petra do the rest.</span></div>
+      <img class="mace" data-src="assets/93_steel_mace_still.jpg" alt="A steel mace against a dark gym wall">
     </div>
+    <div class="orphoto"><span>…or just <b>take a photo of it</b> and let Petra do the rest.</span></div>
     <p class="proof-cap">Your kit. Your exercises. Built to order.</p>
   </div>
 </dialog>
