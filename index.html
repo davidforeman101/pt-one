@@ -241,9 +241,8 @@
   .convo{display:grid;gap:26px}
   .convo .you{font-size:clamp(18px,2.2vw,22px);color:var(--label);font-style:italic;line-height:1.4}
   .convo .us{margin-top:7px;font-size:clamp(19px,2.4vw,24px);font-weight:800;color:var(--text);
-    letter-spacing:-.015em;line-height:1.3;padding-left:22px;position:relative}
-  .convo .us::before{content:"—";position:absolute;left:0;color:var(--accent)}
-  .convo .us i{font-style:normal;color:var(--accent)}
+    letter-spacing:-.015em;line-height:1.3}
+  .convo .us i{font-style:normal;color:var(--accent);letter-spacing:.02em}
   .art2{display:grid;gap:16px}
   .art2 img{width:100%;border-radius:24px;border:1px solid rgba(173,219,219,.16);
     box-shadow:0 26px 70px rgba(0,0,0,.5)}
@@ -517,24 +516,32 @@
       <div class="kicker2">One app, every trainer</div>
       <h2>Whatever app you came for, it's in here.</h2>
     </div>
-    <div class="split" style="margin-top:36px;align-items:start">
+    <!-- lot one: the words lead (left), the doorway answers (right) -->
+    <div class="split" style="margin-top:36px">
       <div class="convo reveal">
         <div class="pair"><p class="you">"I just want a simple gym tracker. Nothing else."</p>
-          <p class="us"><i>It's in here.</i> Sets, weights, PRs, history — zero taps. Crack on.</p></div>
-        <div class="pair"><p class="you">"I want it all done for me — designed, tracked, pushed."</p>
-          <p class="us"><i>In here.</i> Petra designs it, runs it, and nudges when it's earned.</p></div>
+          <p class="us"><i>IT'S IN HERE.</i> Sets, weights, PRs, history. Zero taps. Crack on.</p></div>
+        <div class="pair"><p class="you">"I want it all done for me. Designed, tracked, pushed."</p>
+          <p class="us"><i>IN HERE.</i> Petra designs it, runs it, and nudges when it's earned.</p></div>
         <div class="pair"><p class="you">"Ready-made plans I just press play on."</p>
-          <p class="us"><i>In here.</i> Programs, targets, challenges — the maths already done.</p></div>
-        <div class="pair"><p class="you">"Circuits, EMOM, AMRAP — I train hard."</p>
-          <p class="us"><i>In here.</i> Timed, spoken and scored, benchmarks included.</p></div>
-        <div class="pair"><p class="you">"I'm rebuilding after an injury."</p>
-          <p class="us"><i>In here</i> — it's where PT‑One began.</p></div>
-        <div class="pair"><p class="you">"Honestly? All of the above."</p>
-          <p class="us">That's the point. <i>One app.</i> For you — and you, and you.</p></div>
+          <p class="us"><i>IN HERE.</i> Programs, targets, challenges. The maths already done.</p></div>
       </div>
       <div class="art2 reveal">
         <img src="assets/88_arriving_gym_doorway_f.jpg" alt="A woman with her gym bag at the doorway, looking into the gym" loading="lazy" width="928" height="1152">
-        <img src="assets/40_crowded_gym_solo.jpg" alt="A lifter mid-set in his own world, the whole gym around him" loading="lazy" width="928" height="1152">
+      </div>
+    </div>
+    <!-- lot two: the image leads (left), the words answer (right) -->
+    <div class="split" style="margin-top:44px">
+      <div class="art2 reveal">
+        <img src="assets/81_progress_climb_m_void.jpg" alt="An athlete looking upward behind a rising chart, its top bar glowing ember" loading="lazy" width="928" height="1152">
+      </div>
+      <div class="convo reveal">
+        <div class="pair"><p class="you">"Circuits, EMOM, AMRAP. I train hard."</p>
+          <p class="us"><i>IN HERE.</i> Timed, spoken and scored. Benchmarks included.</p></div>
+        <div class="pair"><p class="you">"I'm rebuilding after an injury."</p>
+          <p class="us"><i>IN HERE.</i> It's where PT‑One began.</p></div>
+        <div class="pair"><p class="you">"Honestly? All of the above."</p>
+          <p class="us">That's the point. <i>ONE APP.</i> For you, and you, and you.</p></div>
       </div>
     </div>
   </div>
