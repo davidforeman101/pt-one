@@ -136,6 +136,11 @@
   .proof-shots.tall .fig{aspect-ratio:4/5;object-position:center 30%}
   .proof-shots.tall .app{width:min(250px,42%)}          /* taller canvas earns a bigger screenshot */
   .proof-shots.app-left .app{right:auto;left:20px;transform:rotate(-3deg)}   /* keep faces clear */
+  /* the spoken command, floating over the zero-taps image — page text, always crisp */
+  .speech{position:absolute;top:16px;left:16px;background:rgba(15,20,20,.82);backdrop-filter:blur(6px);
+    border:1.5px solid var(--accent);border-radius:16px 16px 16px 4px;padding:10px 16px;
+    font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.01em;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .speech i{font-style:normal;color:var(--accent)}
   /* .chat: the conversation IS the story — big and bold, no physique */
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
     border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 55px rgba(0,0,0,.55)}
@@ -303,6 +308,7 @@
       themselves off, and the whole session runs from your wrist while the phone charges in another room.</p>
     <div class="proof-shots">
       <img class="fig" data-src="assets/78_session_earbuds_m_gym.jpg" alt="An athlete mid-session, earbuds in, phone tucked away in his pocket" style="object-position:center 30%">
+      <span class="speech">"<i>Petra</i> — 12 reps!"</span>
       <img class="app" data-src="assets/shot_voice_commands.jpg" alt="Voice commands mid-session">
     </div>
     <p class="proof-cap">Hands stay free — the voice does the logging, the timing and the answering.</p>
