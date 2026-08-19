@@ -268,6 +268,49 @@
   .art2 img{width:100%;border-radius:24px;border:1px solid rgba(173,219,219,.16);
     box-shadow:0 26px 70px rgba(0,0,0,.5)}
 
+  /* ---------- the living session: the voice, shown running ---------- */
+  .stage{position:relative;margin-top:48px;border-radius:26px;text-align:center;
+    padding:54px 22px 40px;border:1px solid var(--line);overflow:hidden;
+    background:radial-gradient(500px 260px at 50% 0%, rgba(26,166,165,.14), transparent 70%),
+               linear-gradient(180deg,#131A1A,#0B0F0F)}
+  .stage-label{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .stage-line{margin-top:22px;font-size:clamp(26px,4.6vw,46px);font-weight:800;letter-spacing:-.02em;
+    color:var(--text);min-height:2.3em;line-height:1.15}
+  .stage-line::after{content:"";display:inline-block;width:3px;height:.9em;background:var(--accent);
+    margin-left:6px;vertical-align:-.1em;animation:caret 1s steps(1) infinite}
+  @keyframes caret{50%{opacity:0}}
+  .stage-extra{min-height:44px;margin-top:10px;display:flex;justify-content:center;align-items:center}
+  .restbar{display:none;width:min(420px,80%);height:10px;border-radius:99px;background:rgba(173,219,219,.14);overflow:hidden}
+  .restbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--deep),var(--accent));border-radius:99px}
+  .restbar.on{display:block}
+  .restbar.on i{animation:sweep 3.1s linear forwards}
+  @keyframes sweep{to{width:100%}}
+  .fmt-pills{display:none;gap:10px}
+  .fmt-pills.on{display:flex}
+  .fmt-pills .pill{font-size:13px;padding:6px 14px}
+  .stage-wave{display:flex;gap:5px;justify-content:center;align-items:flex-end;height:22px;margin-top:18px}
+  .stage-wave i{width:5px;border-radius:3px;background:var(--accent);height:6px;opacity:.85}
+  .stage.playing .stage-wave i{animation:eq 1s ease-in-out infinite}
+  .stage.playing .stage-wave i:nth-child(2){animation-delay:.15s}
+  .stage.playing .stage-wave i:nth-child(3){animation-delay:.3s}
+  .stage.playing .stage-wave i:nth-child(4){animation-delay:.45s}
+  .stage.playing .stage-wave i:nth-child(5){animation-delay:.6s}
+  @keyframes eq{0%,100%{height:6px}50%{height:22px}}
+  .stage-pp{position:absolute;top:16px;right:16px}
+  .stage-note{margin-top:20px;font-size:12.5px;color:var(--muted)}
+  @media (prefers-reduced-motion:reduce){ .stage-line::after{animation:none} }
+
+  /* ---------- the posters ---------- */
+  .posters{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .poster{position:relative;margin:0;border-radius:22px;overflow:hidden;
+    border:1px solid rgba(173,219,219,.16);box-shadow:0 22px 55px rgba(0,0,0,.5)}
+  .poster img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+  .poster figcaption{position:absolute;left:0;right:0;bottom:0;padding:52px 16px 16px;
+    background:linear-gradient(180deg,transparent,rgba(10,14,14,.92))}
+  .poster b{display:block;font-size:clamp(18px,2vw,22px);font-weight:800;color:var(--text);letter-spacing:-.015em}
+  .poster span{display:block;margin-top:6px;font-size:13.5px;color:var(--label);line-height:1.45}
+  @media (max-width:760px){ .posters{grid-template-columns:1fr} }
+
   /* ---------- manifesto ---------- */
   .manifesto{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   .manifesto h2{max-width:16em;margin:0 auto}
@@ -619,33 +662,34 @@
         <div class="figure"><img src="assets/94_bench_flat_big_m_gym.jpg" alt="A big man mid flat bench press, heavy plates loaded, chest and arms blazing ember" loading="lazy" width="928" height="1152"></div>
       </div>
     </div>
-    <div class="grid">
-      <div class="card text-only reveal">
-        <div class="txt">
-          <div class="pillrow"><span class="pill">EMOM</span><span class="pill">CIRCUITS</span><span class="pill">AMRAP</span></div>
-          <h3>Formats that push</h3><p>Every-minute-on-the-minute rounds, flowing circuits, and as-many-rounds-as-possible benchmarks like Cindy and Chelsea — timed, spoken and scored honestly.</p></div>
+    <!-- THE LIVING SESSION: the one thing nobody can screenshot — the voice — shown running.
+         Every line below is one the app genuinely speaks; the band is a dramatisation of a real
+         session's beats, typed out as Petra would say them. -->
+    <div class="stage reveal" id="liveband">
+      <div class="stage-label">A session, as Petra runs it</div>
+      <div class="stage-line" id="stageLine" aria-live="off">Barbell bench press. Set 2 of 4.</div>
+      <div class="stage-extra" id="stageExtra">
+        <div class="restbar" id="restBar"><i></i></div>
+        <div class="fmt-pills" id="fmtPills"><span class="pill">EMOM</span><span class="pill">CIRCUITS</span><span class="pill">AMRAP</span></div>
       </div>
-      <div class="card text-only reveal">
-        <div class="txt">
-          <div class="pillrow"><span class="pill">3s DOWN</span><span class="pill">PAUSE</span><span class="pill emb">DRIVE UP</span></div>
-          <h3>Tempo — reps with a rhythm</h3><p>Petra counts the cadence out loud so every rep is the rep you meant to do. The set ends when the rhythm breaks, honestly.</p></div>
-      </div>
-      <div class="card reveal">
-        <div class="shot"><img src="assets/shot_warmup_run.jpg" alt="A warm-up running before the session" loading="lazy"></div>
-        <div class="txt"><h3>Warm-up &amp; cool-down</h3><p>One tap tops-and-tails your session with a few minutes each way, matched to the muscles the session actually works — added as real exercises you can tweak.</p></div>
-      </div>
-      <div class="card reveal">
-        <div class="shot"><img src="assets/shot_lighter.jpg" alt="Lighter week — one tap halves the work" loading="lazy"></div>
-        <div class="txt"><h3>Lighter week</h3><p>Run down, or just due an easier one? One tap keeps the week's shape and halves the work. A chosen easing-off, never a falling-behind.</p></div>
-      </div>
-      <div class="card reveal">
-        <div class="shot"><img src="assets/shot_watch_session.jpg" alt="A session running on Apple Watch" loading="lazy" style="width:80%;max-width:260px"></div>
-        <div class="txt"><h3>Apple Watch</h3><p>Every cue, timer and "switch sides" on your wrist, heart rate charted against your session afterwards. The phone can stay across the room.</p></div>
-      </div>
-      <div class="card reveal">
-        <div class="shot"><img src="assets/shot_clean_logging.jpg" alt="Clean per-set logging" loading="lazy"></div>
-        <div class="txt"><h3>Logging that keeps up</h3><p>Last time's numbers offered up front, per-set ticks as the voice moves you along, and an Undo that walks back exactly one set — even through timed holds.</p></div>
-      </div>
+      <div class="stage-wave" id="stageWave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <button class="pp stage-pp" id="stagePP" aria-label="Pause">❚❚</button>
+      <div class="stage-note">A dramatisation — every line is one the app really speaks, mid-session, out loud.</div>
+    </div>
+    <!-- the posters: the quieter capabilities, worn big -->
+    <div class="posters">
+      <figure class="poster reveal">
+        <img src="assets/50_warmup_dynamic.jpg" alt="An athlete mid high-knee, warming up" loading="lazy" width="928" height="1152">
+        <figcaption><b>Two minutes to ready.</b><span>Warm-up and cool-down matched to the session's muscles, added as real exercises you can tweak.</span></figcaption>
+      </figure>
+      <figure class="poster reveal">
+        <img src="assets/49_older_man_stretch.jpg" alt="An older man stretching calmly by the window" loading="lazy" width="928" height="1152">
+        <figcaption><b>Lighter week. On purpose.</b><span>One tap halves the work and keeps the habit. Next week picks up exactly where you were.</span></figcaption>
+      </figure>
+      <figure class="poster reveal">
+        <img src="assets/25_watchcheck_woman.jpg" alt="A woman glancing at the session on her Apple Watch" loading="lazy" width="928" height="1152">
+        <figcaption><b>The whole session. On your wrist.</b><span>Cues, timers and heart rate on Apple Watch — the phone can stay in your bag.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -913,6 +957,61 @@
       d.showModal();
     });
   });
+  // THE LIVING SESSION: Petra's real lines, typed out on a loop. Plays only while on screen,
+  // pausable, and Reduce Motion gets the whole script at rest instead of the theatre.
+  (() => {
+    const stage = document.getElementById('liveband');
+    if (!stage) return;
+    const line = document.getElementById('stageLine');
+    const rest = document.getElementById('restBar');
+    const pills = document.getElementById('fmtPills');
+    const pp = document.getElementById('stagePP');
+    const BEATS = [
+      { t: "Barbell bench press. Set 2 of 4.", d: 3000 },
+      { t: "Three… two… one — go.", d: 2600 },
+      { t: "Down… two… three… drive up.", d: 3400 },
+      { t: "Rest. Ninety seconds.", d: 3200, extra: 'rest' },
+      { t: "Switch sides.", d: 2200 },
+      { t: "Round four. Go.", d: 2800, extra: 'formats' },
+      { t: "Last one. Go for it.", d: 3200 },
+    ];
+    if (noMotion) {
+      line.textContent = BEATS.map(b => b.t).join('  ·  ');
+      line.style.fontSize = '20px'; line.style.minHeight = '0';
+      pp.remove(); return;
+    }
+    let idx = 0, typeTimer = null, beatTimer = null, playing = false, visible = false;
+    function showBeat(i) {
+      idx = i % BEATS.length;
+      const b = BEATS[idx];
+      rest.classList.toggle('on', b.extra === 'rest');
+      if (b.extra === 'rest') { rest.querySelector('i').style.animation = 'none'; void rest.offsetWidth; rest.querySelector('i').style.animation = ''; }
+      pills.classList.toggle('on', b.extra === 'formats');
+      let n = 0;
+      line.textContent = '';
+      clearInterval(typeTimer);
+      typeTimer = setInterval(() => {
+        n++; line.textContent = b.t.slice(0, n);
+        if (n >= b.t.length) clearInterval(typeTimer);
+      }, Math.min(46, (b.d * 0.45) / b.t.length));
+      clearTimeout(beatTimer);
+      beatTimer = setTimeout(() => { if (playing) showBeat(idx + 1); }, b.d);
+    }
+    function setPlay(on) {
+      playing = on && visible;
+      stage.classList.toggle('playing', playing);
+      pp.textContent = playing ? '❚❚' : '▶';
+      pp.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      if (playing) showBeat(idx); else { clearInterval(typeTimer); clearTimeout(beatTimer); }
+    }
+    pp.addEventListener('click', () => { visible = true; setPlay(!playing); });
+    new IntersectionObserver(es => es.forEach(e => {
+      visible = e.isIntersecting;
+      if (!e.isIntersecting) setPlay(false);
+      else if (!playing) setPlay(true);
+    }), { threshold: 0.35 }).observe(stage);
+  })();
+
   // Card screenshots tap open full-size — the same lightbox the reference reports use.
   const lb = document.createElement('dialog');
   lb.className = 'lightbox';
