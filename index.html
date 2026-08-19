@@ -192,6 +192,12 @@
     color:var(--label);font-size:14px;line-height:1.45}
   .orphoto b{color:var(--text)}
   .proof-cap{margin-top:30px}
+  /* the tap-to-zoom lightbox (same as the reference reports) */
+  dialog.lightbox{border:none;background:transparent;padding:0;max-width:none;max-height:none;
+    position:fixed;inset:0;margin:auto;outline:none}
+  dialog.lightbox::backdrop{background:rgba(6,9,9,.88);backdrop-filter:blur(6px)}
+  dialog.lightbox img{display:block;max-width:96vw;max-height:94vh;width:auto;height:auto;
+    border-radius:14px;border:1px solid var(--line);box-shadow:0 40px 120px rgba(0,0,0,.8);cursor:zoom-out}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
 
   /* ---------- sections ---------- */
@@ -619,9 +625,10 @@
           <div class="pillrow"><span class="pill">EMOM</span><span class="pill">CIRCUITS</span><span class="pill">AMRAP</span></div>
           <h3>Formats that push</h3><p>Every-minute-on-the-minute rounds, flowing circuits, and as-many-rounds-as-possible benchmarks like Cindy and Chelsea — timed, spoken and scored honestly.</p></div>
       </div>
-      <div class="card reveal">
-        <div class="shot"><img src="assets/shot_tempo_detail.jpg" alt="Tempo settings for a paced rep" loading="lazy"></div>
-        <div class="txt"><h3>Tempo — reps with a rhythm</h3><p>Three seconds down, pause, drive up — Petra counts the cadence out loud so every rep is the rep you meant to do. The set ends when the rhythm breaks, honestly.</p></div>
+      <div class="card text-only reveal">
+        <div class="txt">
+          <div class="pillrow"><span class="pill">3s DOWN</span><span class="pill">PAUSE</span><span class="pill emb">DRIVE UP</span></div>
+          <h3>Tempo — reps with a rhythm</h3><p>Petra counts the cadence out loud so every rep is the rep you meant to do. The set ends when the rhythm breaks, honestly.</p></div>
       </div>
       <div class="card reveal">
         <div class="shot"><img src="assets/shot_warmup_run.jpg" alt="A warm-up running before the session" loading="lazy"></div>
@@ -906,6 +913,19 @@
       d.showModal();
     });
   });
+  // Card screenshots tap open full-size — the same lightbox the reference reports use.
+  const lb = document.createElement('dialog');
+  lb.className = 'lightbox';
+  lb.innerHTML = '<img alt="">';
+  document.body.appendChild(lb);
+  const lbimg = lb.querySelector('img');
+  document.querySelectorAll('.card .shot img').forEach(t => {
+    t.style.cursor = 'zoom-in';
+    t.addEventListener('click', () => { lbimg.src = t.src; lb.showModal(); });
+  });
+  lb.addEventListener('click', () => lb.close());
+  lb.addEventListener('close', () => { lbimg.src = ''; });
+
   document.querySelectorAll('dialog.proof').forEach(d => {
     d.querySelector('.proof-close').addEventListener('click', () => d.close());
     d.addEventListener('click', e => { if (e.target === d) d.close(); });   // tap the backdrop to dismiss
