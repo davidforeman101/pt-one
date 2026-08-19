@@ -141,6 +141,15 @@
     background:linear-gradient(180deg,transparent,rgba(10,14,14,.88));
     font-size:clamp(24px,3.6vw,32px);font-weight:800;color:var(--text);letter-spacing:-.015em}
   .speech i{font-style:normal;color:var(--accent)}
+  /* .fan: many apps in one — real screens fanned like a hand of cards, each wearing its label */
+  .fan{position:relative;height:min(430px,58vh);margin-top:26px}
+  .fan figure{position:absolute;left:50%;bottom:26px;width:min(200px,36%);margin:0;
+    transform:translateX(calc(-50% + var(--fx))) rotate(var(--r));transform-origin:50% 130%}
+  .fan img{width:100%;aspect-ratio:9/16.4;object-fit:cover;object-position:top;border-radius:18px;
+    border:1px solid rgba(173,219,219,.25);box-shadow:0 24px 60px rgba(0,0,0,.7);background:#000;display:block}
+  .fan figcaption{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);
+    background:var(--accent);color:#06201F;font-weight:800;font-size:12.5px;letter-spacing:.05em;
+    padding:4px 13px;border-radius:99px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.5)}
   /* .chat: the conversation IS the story — big and bold; the mace rides its right edge, angled */
   .proof-shots.chat{position:relative}
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
@@ -360,13 +369,15 @@
 <dialog class="proof" id="p-allinone">
   <div class="proof-in">
     <div class="proof-head"><h3>Whatever app you came for, it's in here.</h3><button class="proof-close" aria-label="Close">✕</button></div>
-    <p style="font-size:19px;line-height:1.5"><b>Tracker. Coach. Programs. Circuits. Rehab.</b><br>
-      One app. All of it. Use the part that's yours; ignore the rest.</p>
-    <div class="proof-shots tall">
-      <img class="fig" data-src="assets/44_commercial_floor.jpg" alt="A whole gym floor of racks and benches, receding into the dark">
-      <img class="app" data-src="assets/coach_crop.jpg" alt="The Coach home — sessions, plans, the weekly review and Petra, one screen">
+    <p style="font-size:19px;line-height:1.5"><b>Tracker. Coach. Programs. Challenges. Rehab.</b><br>
+      Pick your app — it's the same app.</p>
+    <div class="fan">
+      <figure style="--fx:-95%;--r:-12deg"><img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking — weights, reps, rests"><figcaption>TRACKER</figcaption></figure>
+      <figure style="--fx:-32%;--r:-4deg"><img data-src="assets/shot_ava_chat.jpg" alt="The AI coach in conversation"><figcaption>COACH</figcaption></figure>
+      <figure style="--fx:32%;--r:4deg"><img data-src="assets/shot_sslp.jpg" alt="A program week with the numbers set"><figcaption>PROGRAMS</figcaption></figure>
+      <figure style="--fx:95%;--r:12deg"><img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress"><figcaption>CHALLENGES</figcaption></figure>
     </div>
-    <p class="proof-cap">A whole gym in one room — a whole app category in one app.</p>
+    <p class="proof-cap">…and gentle guided rehab is where it all began.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-yours">
