@@ -145,12 +145,22 @@
   .deck{position:relative;overflow:hidden;margin-top:18px}
   .deck-track{display:flex;transition:transform .55s cubic-bezier(.3,.8,.3,1)}
   @media (prefers-reduced-motion:reduce){ .deck-track{transition:none} }
-  .deck .slide{flex:0 0 100%;min-width:0;display:flex;flex-direction:column;align-items:center;gap:16px;padding:6px 0 2px}
-  .deck .slide > img{height:min(320px,42vh);width:auto;border-radius:16px;
+  .deck .slide{flex:0 0 100%;min-width:0;display:flex;align-items:center;justify-content:center;
+    gap:30px;padding:14px 8px 6px;min-height:min(520px,60vh)}
+  .deck .slide > img{height:min(480px,56vh);width:auto;border-radius:20px;
     border:1px solid rgba(173,219,219,.25);box-shadow:0 22px 55px rgba(0,0,0,.65);background:#000}
-  .deck .dl{font-size:clamp(20px,3vw,27px);font-weight:800;letter-spacing:-.015em;text-align:center;line-height:1.25}
+  .deck .scol{flex:0 1 46%;text-align:left}
+  .deck .dl{font-size:clamp(30px,4.6vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
   .deck .dl i{font-style:normal;color:var(--accent)}
-  .deck .dl small{display:block;font-size:15px;font-weight:600;color:var(--label);margin-top:6px}
+  .deck .dsub{margin-top:14px;font-size:clamp(15px,1.8vw,17.5px);color:var(--label);line-height:1.5}
+  .deck .dsub b{color:var(--text)}
+  .deck .slide.hook{flex-direction:column;text-align:center}
+  .deck .slide.hook .scol{flex:none;text-align:center;max-width:34ch}
+  @media (max-width:700px){
+    .deck .slide{flex-direction:column;gap:18px;text-align:center}
+    .deck .scol{flex:none;text-align:center}
+    .deck .slide > img{height:min(340px,44vh)}
+  }
   .dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
   .dots button{width:8px;height:8px;border-radius:99px;border:none;background:rgba(173,219,219,.28);cursor:pointer;padding:0}
   .dots button.on{background:var(--accent);width:22px;transition:width .3s ease}
@@ -381,18 +391,41 @@
     <p>Whichever app that is — and everything else <b>stays out of your way</b> until the day you want it.</p>
     <div class="deck" id="deck-allinone">
       <div class="deck-track">
-        <div class="slide"><img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking — weights, reps, rests"><div class="dl">Your <i>tracker</i>? In here.</div></div>
-        <div class="slide"><img data-src="assets/shot_ava_chat.jpg" alt="The AI coach in conversation"><div class="dl">Your <i>coach</i>? In here.</div></div>
-        <div class="slide"><img data-src="assets/shot_sslp.jpg" alt="A program week with the numbers set"><div class="dl">Your <i>plans</i>? In here.</div></div>
-        <div class="slide"><img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress"><div class="dl">Your <i>classes</i>? In here.</div></div>
+        <div class="slide hook">
+          <div class="scol">
+            <div class="dl">Already have<br>a gym app?</div>
+            <p class="dsub">Keep doing <b>exactly what you do</b> — just do it in here. Watch.</p>
+          </div>
+        </div>
         <div class="slide">
+          <div class="scol"><div class="dl">Your <i>tracker</i>?<br>In here.</div>
+            <p class="dsub">Every set, rep and PR — logging <b>as quick as the app you left</b>. Nothing to learn.</p></div>
+          <img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking — weights, reps, rests">
+        </div>
+        <div class="slide">
+          <div class="scol"><div class="dl">Your <i>coach</i>?<br>In here.</div>
+            <p class="dsub">Petra designs, swaps and explains — and <b>hands the wheel straight back</b>.</p></div>
+          <img data-src="assets/shot_ava_chat.jpg" alt="The AI coach in conversation">
+        </div>
+        <div class="slide">
+          <div class="scol"><div class="dl">Your <i>plans</i>?<br>In here.</div>
+            <p class="dsub">Programs with the maths done. Targets with <b>the whole route drawn</b>.</p></div>
+          <img data-src="assets/shot_sslp.jpg" alt="A program week with the numbers set">
+        </div>
+        <div class="slide">
+          <div class="scol"><div class="dl">Your <i>classes</i>?<br>In here.</div>
+            <p class="dsub">EMOM, circuits, AMRAP — <b>timed and scored out loud</b>.</p></div>
+          <img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress">
+        </div>
+        <div class="slide">
+          <div class="scol"><div class="dl">One app.<br><i>Costs less.</i></div>
+            <p class="dsub">And the rest? It <b>stays out of your way</b> — until the day you want it.</p></div>
           <div class="mini-fan">
             <img data-src="assets/shot_clean_logging.jpg" alt="" style="--fx:-100%;--r:-12deg">
             <img data-src="assets/shot_ava_chat.jpg" alt="" style="--fx:-34%;--r:-4deg">
             <img data-src="assets/shot_sslp.jpg" alt="" style="--fx:34%;--r:4deg">
             <img data-src="assets/shot_challenges.jpg" alt="" style="--fx:100%;--r:12deg">
           </div>
-          <div class="dl">One app. <i>Costs less.</i><small>The rest stays out of your way — until you're ready.</small></div>
         </div>
       </div>
       <div class="dots" aria-label="Slides"></div>
