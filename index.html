@@ -237,6 +237,17 @@
   @media (max-width:960px){ .grid{grid-template-columns:repeat(2,1fr)} }
   @media (max-width:620px){ .grid{grid-template-columns:1fr} .card .shot{height:200px} }
 
+  /* ---------- the conversation: what people say, and the answer ---------- */
+  .convo{display:grid;gap:26px}
+  .convo .you{font-size:clamp(18px,2.2vw,22px);color:var(--label);font-style:italic;line-height:1.4}
+  .convo .us{margin-top:7px;font-size:clamp(19px,2.4vw,24px);font-weight:800;color:var(--text);
+    letter-spacing:-.015em;line-height:1.3;padding-left:22px;position:relative}
+  .convo .us::before{content:"—";position:absolute;left:0;color:var(--accent)}
+  .convo .us i{font-style:normal;color:var(--accent)}
+  .art2{display:grid;gap:16px}
+  .art2 img{width:100%;border-radius:24px;border:1px solid rgba(173,219,219,.16);
+    box-shadow:0 26px 70px rgba(0,0,0,.5)}
+
   /* ---------- manifesto ---------- */
   .manifesto{background:linear-gradient(180deg,var(--bg2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
   .manifesto h2{max-width:16em;margin:0 auto}
@@ -499,6 +510,36 @@
   </div>
 </dialog>
 
+<!-- ================= WHATEVER YOU CAME FOR — second slot: the FEELING (hero) then the FACT ================= -->
+<section id="allofit">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="kicker2">One app, every trainer</div>
+      <h2>Whatever app you came for, it's in here.</h2>
+    </div>
+    <div class="split" style="margin-top:36px;align-items:start">
+      <div class="convo reveal">
+        <div class="pair"><p class="you">"I just want a simple gym tracker. Nothing else."</p>
+          <p class="us"><i>It's in here.</i> Sets, weights, PRs, history — zero taps. Crack on.</p></div>
+        <div class="pair"><p class="you">"I want it all done for me — designed, tracked, pushed."</p>
+          <p class="us"><i>In here.</i> Petra designs it, runs it, and nudges when it's earned.</p></div>
+        <div class="pair"><p class="you">"Ready-made plans I just press play on."</p>
+          <p class="us"><i>In here.</i> Programs, targets, challenges — the maths already done.</p></div>
+        <div class="pair"><p class="you">"Circuits, EMOM, AMRAP — I train hard."</p>
+          <p class="us"><i>In here.</i> Timed, spoken and scored, benchmarks included.</p></div>
+        <div class="pair"><p class="you">"I'm rebuilding after an injury."</p>
+          <p class="us"><i>In here</i> — it's where PT‑One began.</p></div>
+        <div class="pair"><p class="you">"Honestly? All of the above."</p>
+          <p class="us">That's the point. <i>One app.</i> For you — and you, and you.</p></div>
+      </div>
+      <div class="art2 reveal">
+        <img src="assets/88_arriving_gym_doorway_f.jpg" alt="A woman with her gym bag at the doorway, looking into the gym" loading="lazy" width="928" height="1152">
+        <img src="assets/40_crowded_gym_solo.jpg" alt="A lifter mid-set in his own world, the whole gym around him" loading="lazy" width="928" height="1152">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= HANDS-FREE ================= -->
 <section id="handsfree">
   <div class="wrap">
@@ -589,23 +630,6 @@
   </div>
 </section>
 
-<!-- ================= EVERYTHING TO EVERYONE ================= -->
-<section id="allofit" style="padding:76px 0">
-  <div class="wrap reveal" style="text-align:center">
-    <div class="kicker2">One app, every trainer</div>
-    <h2>Whatever app you came for,<br>it's in here.</h2>
-    <p class="sub" style="margin-left:auto;margin-right:auto">Most apps make you choose: the tracker <i>or</i> the coach <i>or</i> the plans.
-      PT‑One is all of them at once — use the part that's yours and ignore the rest.</p>
-    <div class="creed" style="grid-template-columns:repeat(3,1fr)">
-      <div><b>"Just a gym tracker."</b><p>Got it. Sets, weights, rests, supersets, PRs and history — logging as frictionless as it gets, then one tap quicker: your voice.</p></div>
-      <div><b>"An AI that coaches me."</b><p>Got it. Petra designs sessions, adjusts plans, checks your form and explains every number — and hands the wheel straight back.</p></div>
-      <div><b>"Ready-made plans."</b><p>Got it. Programs with the maths done, targets with the route drawn, challenges with a month's shape — press play.</p></div>
-      <div><b>"Circuits, EMOM, AMRAP."</b><p>Got it. Every format spoken and scored, benchmarks included.</p></div>
-      <div><b>"Gentle guided rehab."</b><p>That's where PT‑One began — and it's still the heart of it.</p></div>
-      <div><b>"All of the above."</b><p>That's the point. All gym apps for all people, in one — for you. And you. And you.</p></div>
-    </div>
-  </div>
-</section>
 
 <!-- ================= PLANS THAT THINK ================= -->
 <section id="plans">
