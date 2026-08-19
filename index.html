@@ -161,9 +161,12 @@
     .deck .scol{flex:none;text-align:center}
     .deck .slide > img{height:min(340px,44vh)}
   }
-  .dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+  .dots{display:flex;gap:8px;justify-content:center;align-items:center;margin-top:16px}
   .dots button{width:8px;height:8px;border-radius:99px;border:none;background:rgba(173,219,219,.28);cursor:pointer;padding:0}
   .dots button.on{background:var(--accent);width:22px;transition:width .3s ease}
+  .dots button.pp{width:30px;height:30px;background:var(--card);border:1px solid var(--line);
+    color:var(--accent);font-size:12px;display:flex;align-items:center;justify-content:center;margin-left:8px}
+  .dots button.pp:hover{border-color:rgba(26,166,165,.6)}
   /* the finale market map */
   .quad{width:min(520px,54%);height:auto;flex:0 1 auto}
   @media (max-width:700px){ .quad{width:100%} }
@@ -848,24 +851,38 @@
     slides.forEach((_, i) => {
       const b = document.createElement('button');
       b.setAttribute('aria-label', `Slide ${i + 1}`);
-      b.addEventListener('click', () => { go(i); restart(); });
+      b.addEventListener('click', () => { go(i); setPlaying(false); });
       dots.appendChild(b);
     });
     const dotEls = dots.querySelectorAll('button');
+    // pause/play — and the deck STOPS on the finale rather than looping away from the punchline
+    const pp = document.createElement('button');
+    pp.className = 'pp'; pp.textContent = '❚❚'; pp.setAttribute('aria-label', 'Pause');
+    dots.appendChild(pp);
+    let playing = false;
+    function setPlaying(on) {
+      playing = on && !noMotion;
+      clearInterval(timer);
+      if (playing) timer = setInterval(step, 3600);
+      pp.textContent = playing ? '❚❚' : '▶';
+      pp.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+    }
     function go(i) {
       idx = (i + slides.length) % slides.length;
       track.style.transform = `translateX(-${idx * 100}%)`;
       dotEls.forEach((el, j) => el.classList.toggle('on', j === idx));
     }
-    function restart() {
-      clearInterval(timer);
-      if (!noMotion) timer = setInterval(() => go(idx + 1), 3200);
+    function step() {
+      if (idx >= slides.length - 1) { setPlaying(false); return }   // hold on the market map
+      go(idx + 1);
     }
-    deck.addEventListener('mouseenter', () => clearInterval(timer));
-    deck.addEventListener('mouseleave', restart);
+    pp.addEventListener('click', () => {
+      if (!playing && idx >= slides.length - 1) go(0);   // play from the top after the finale
+      setPlaying(!playing);
+    });
     new MutationObserver(() => {
-      if (dialog.open) { go(noMotion ? slides.length - 1 : 0); restart(); }
-      else clearInterval(timer);
+      if (dialog.open) { go(noMotion ? slides.length - 1 : 0); setPlaying(true); }
+      else setPlaying(false);
     }).observe(dialog, { attributes: true, attributeFilter: ['open'] });
     go(0);
   })();
