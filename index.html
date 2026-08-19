@@ -170,7 +170,9 @@
   /* the finale market map: title across the top, the chart big, the price line beneath */
   .deck .slide.map{flex-direction:column;gap:10px}
   .deck .slide.map .dl{text-align:center}
-  .quad{width:min(760px,97%);height:auto;flex:0 1 auto}
+  .quad{width:min(760px,97%);height:auto;flex:0 1 auto;
+    background:linear-gradient(180deg,#141B1B,#0C1111);border:1px solid var(--line);
+    border-radius:20px;padding:20px 16px 12px;box-shadow:inset 0 1px 0 rgba(173,219,219,.06),0 18px 45px rgba(0,0,0,.4)}
   .deck .slide.map .dsub{text-align:center;margin-top:2px;max-width:46em}
   /* .chat: the conversation IS the story — big and bold; the mace rides its right edge, angled */
   .proof-shots.chat{position:relative}
@@ -460,10 +462,9 @@
             <circle cx="452" cy="338" r="8.5" fill="#1AA6A5"/>
             <circle cx="455" cy="331" r="3.6" fill="#FF9500"/>
             <text x="452" y="308" text-anchor="middle" fill="#EDF5F5" font-size="14.5" font-weight="800">PT-One</text>
-            <text x="452" y="380" text-anchor="middle" fill="#1AA6A5" font-size="12" font-weight="700">$2 → $1, with scale</text>
           </svg>
-          <p class="dsub">$2 a month at launch — scale moves it <b>down, never up</b>. And it opens as simple as
-            the logbooks: <b>the coach only speaks when you ask</b>.</p>
+          <p class="dsub">Priced with the logbooks — not the coaches. And it opens just as simple:
+            <b>the coach only speaks when you ask</b>.</p>
         </div>
       </div>
       <div class="dots" aria-label="Slides"></div>
