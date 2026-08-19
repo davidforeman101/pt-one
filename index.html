@@ -210,10 +210,16 @@
      border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 50px rgba(0,0,0,.55);transform:rotate(2deg)}
   #handsfree .checks{display:block}
   #handsfree .checks li{margin-bottom:13px}
-  /* train: the bench press earns more of the row — text squashes over, the screen hangs off-left */
-  #train .split{grid-template-columns:.85fr 1.15fr}
+  /* train: the bench press earns more of the row — text squashes over; the phone floats at the
+     text's right edge, leaning over to just overlap the image, with the copy working around it */
+  #train .split{grid-template-columns:.9fr 1.1fr}
   #train .art .figure{width:min(480px,100%)}
-  #train .art .app.left{left:-26%;bottom:6%}   /* barely kisses the image edge — the bench stays on show */
+  #train .floatphone{float:right;width:min(215px,44%);margin:4px -110px 14px 18px;
+    border-radius:22px;border:1px solid rgba(173,219,219,.25);box-shadow:0 24px 60px rgba(0,0,0,.7);
+    background:#000;transform:rotate(-2.5deg);position:relative;z-index:2}
+  #train .checks{display:block}
+  #train .checks li{margin-bottom:13px}
+  @media (max-width:880px){ #train .floatphone{margin-right:0} }
   .art .figure::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg, transparent 58%, rgba(15,20,20,.5))}
   .art .app{position:absolute;bottom:-16px;width:min(170px,38%);border-radius:22px;overflow:hidden;
      border:1px solid rgba(173,219,219,.22);box-shadow:0 22px 55px rgba(0,0,0,.65);background:#000}
@@ -594,6 +600,7 @@
       <div class="reveal">
         <div class="kicker2">Train your way</div>
         <h2>Every format. Every pace. <span class="em">Your</span> rules.</h2>
+        <img class="floatphone" src="assets/shot_bench_run.jpg" alt="The same bench press running in PT-One — set, reps and bar loaded" loading="lazy" width="800" height="1739">
         <p class="sub">Straight sets, timed holds, flowing circuits, every-minute rounds, benchmark AMRAPs —
           and the same calm voice runs them all. However you train, PT‑One already speaks it.</p>
         <ul class="checks">
@@ -604,7 +611,6 @@
       </div>
       <div class="art reveal">
         <div class="figure"><img src="assets/94_bench_flat_big_m_gym.jpg" alt="A big man mid flat bench press, heavy plates loaded, chest and arms blazing ember" loading="lazy" width="928" height="1152"></div>
-        <div class="app left"><img src="assets/shot_bench_run.jpg" alt="The same bench press running in PT-One — set, reps and bar loaded" loading="lazy" width="800" height="1739"></div>
       </div>
     </div>
     <div class="grid">
