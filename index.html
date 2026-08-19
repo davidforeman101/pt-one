@@ -141,15 +141,24 @@
     background:linear-gradient(180deg,transparent,rgba(10,14,14,.88));
     font-size:clamp(24px,3.6vw,32px);font-weight:800;color:var(--text);letter-spacing:-.015em}
   .speech i{font-style:normal;color:var(--accent)}
-  /* .fan: many apps in one — real screens fanned like a hand of cards, each wearing its label */
-  .fan{position:relative;height:min(430px,58vh);margin-top:26px}
-  .fan figure{position:absolute;left:50%;bottom:26px;width:min(200px,36%);margin:0;
+  /* .deck: the all-in-one story as slides — one claim at a time, gathering into the fan finale */
+  .deck{position:relative;overflow:hidden;margin-top:18px}
+  .deck-track{display:flex;transition:transform .55s cubic-bezier(.3,.8,.3,1)}
+  @media (prefers-reduced-motion:reduce){ .deck-track{transition:none} }
+  .deck .slide{flex:0 0 100%;min-width:0;display:flex;flex-direction:column;align-items:center;gap:16px;padding:6px 0 2px}
+  .deck .slide > img{height:min(320px,42vh);width:auto;border-radius:16px;
+    border:1px solid rgba(173,219,219,.25);box-shadow:0 22px 55px rgba(0,0,0,.65);background:#000}
+  .deck .dl{font-size:clamp(20px,3vw,27px);font-weight:800;letter-spacing:-.015em;text-align:center;line-height:1.25}
+  .deck .dl i{font-style:normal;color:var(--accent)}
+  .deck .dl small{display:block;font-size:15px;font-weight:600;color:var(--label);margin-top:6px}
+  .dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+  .dots button{width:8px;height:8px;border-radius:99px;border:none;background:rgba(173,219,219,.28);cursor:pointer;padding:0}
+  .dots button.on{background:var(--accent);width:22px;transition:width .3s ease}
+  /* the finale fan, mini */
+  .mini-fan{position:relative;height:min(320px,42vh);width:100%}
+  .mini-fan img{position:absolute;left:50%;bottom:6px;width:min(150px,26%);aspect-ratio:9/16.4;object-fit:cover;object-position:top;
+    border-radius:14px;border:1px solid rgba(173,219,219,.25);box-shadow:0 20px 50px rgba(0,0,0,.7);background:#000;
     transform:translateX(calc(-50% + var(--fx))) rotate(var(--r));transform-origin:50% 130%}
-  .fan img{width:100%;aspect-ratio:9/16.4;object-fit:cover;object-position:top;border-radius:18px;
-    border:1px solid rgba(173,219,219,.25);box-shadow:0 24px 60px rgba(0,0,0,.7);background:#000;display:block}
-  .fan figcaption{position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);
-    background:var(--accent);color:#06201F;font-weight:800;font-size:12.5px;letter-spacing:.05em;
-    padding:4px 13px;border-radius:99px;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.5)}
   /* .chat: the conversation IS the story — big and bold; the mace rides its right edge, angled */
   .proof-shots.chat{position:relative}
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
@@ -368,16 +377,26 @@
 </dialog>
 <dialog class="proof" id="p-allinone">
   <div class="proof-in">
-    <div class="proof-head"><h3>Whatever app you came for, it's in here.</h3><button class="proof-close" aria-label="Close">✕</button></div>
-    <p style="font-size:19px;line-height:1.5"><b>Tracker. Coach. Programs. Challenges. Rehab.</b><br>
-      Pick your app — it's the same app.</p>
-    <div class="fan">
-      <figure style="--fx:-95%;--r:-12deg"><img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking — weights, reps, rests"><figcaption>TRACKER</figcaption></figure>
-      <figure style="--fx:-32%;--r:-4deg"><img data-src="assets/shot_ava_chat.jpg" alt="The AI coach in conversation"><figcaption>COACH</figcaption></figure>
-      <figure style="--fx:32%;--r:4deg"><img data-src="assets/shot_sslp.jpg" alt="A program week with the numbers set"><figcaption>PROGRAMS</figcaption></figure>
-      <figure style="--fx:95%;--r:12deg"><img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress"><figcaption>CHALLENGES</figcaption></figure>
+    <div class="proof-head"><h3>It does what your app does.</h3><button class="proof-close" aria-label="Close">✕</button></div>
+    <p>Whichever app that is — and everything else <b>stays out of your way</b> until the day you want it.</p>
+    <div class="deck" id="deck-allinone">
+      <div class="deck-track">
+        <div class="slide"><img data-src="assets/shot_clean_logging.jpg" alt="Pure set tracking — weights, reps, rests"><div class="dl">Your <i>tracker</i>? In here.</div></div>
+        <div class="slide"><img data-src="assets/shot_ava_chat.jpg" alt="The AI coach in conversation"><div class="dl">Your <i>coach</i>? In here.</div></div>
+        <div class="slide"><img data-src="assets/shot_sslp.jpg" alt="A program week with the numbers set"><div class="dl">Your <i>plans</i>? In here.</div></div>
+        <div class="slide"><img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress"><div class="dl">Your <i>classes</i>? In here.</div></div>
+        <div class="slide">
+          <div class="mini-fan">
+            <img data-src="assets/shot_clean_logging.jpg" alt="" style="--fx:-100%;--r:-12deg">
+            <img data-src="assets/shot_ava_chat.jpg" alt="" style="--fx:-34%;--r:-4deg">
+            <img data-src="assets/shot_sslp.jpg" alt="" style="--fx:34%;--r:4deg">
+            <img data-src="assets/shot_challenges.jpg" alt="" style="--fx:100%;--r:12deg">
+          </div>
+          <div class="dl">One app. <i>Costs less.</i><small>The rest stays out of your way — until you're ready.</small></div>
+        </div>
+      </div>
+      <div class="dots" aria-label="Slides"></div>
     </div>
-    <p class="proof-cap">…and gentle guided rehab is where it all began.</p>
   </div>
 </dialog>
 <dialog class="proof" id="p-yours">
@@ -749,6 +768,41 @@
     d.querySelector('.proof-close').addEventListener('click', () => d.close());
     d.addEventListener('click', e => { if (e.target === d) d.close(); });   // tap the backdrop to dismiss
   });
+
+  // The all-in-one deck: slides advance themselves while the dialog is open; dots navigate;
+  // hovering pauses; Reduce Motion opens straight on the finale, no autoplay.
+  (() => {
+    const deck = document.getElementById('deck-allinone');
+    if (!deck) return;
+    const track = deck.querySelector('.deck-track');
+    const slides = deck.querySelectorAll('.slide');
+    const dots = deck.querySelector('.dots');
+    const dialog = deck.closest('dialog');
+    let idx = 0, timer = null;
+    slides.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('aria-label', `Slide ${i + 1}`);
+      b.addEventListener('click', () => { go(i); restart(); });
+      dots.appendChild(b);
+    });
+    const dotEls = dots.querySelectorAll('button');
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dotEls.forEach((el, j) => el.classList.toggle('on', j === idx));
+    }
+    function restart() {
+      clearInterval(timer);
+      if (!noMotion) timer = setInterval(() => go(idx + 1), 3200);
+    }
+    deck.addEventListener('mouseenter', () => clearInterval(timer));
+    deck.addEventListener('mouseleave', restart);
+    new MutationObserver(() => {
+      if (dialog.open) { go(noMotion ? slides.length - 1 : 0); restart(); }
+      else clearInterval(timer);
+    }).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+    go(0);
+  })();
 </script>
 </body>
 </html>
