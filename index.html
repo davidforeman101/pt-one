@@ -167,9 +167,11 @@
   .dots button.pp{width:30px;height:30px;background:var(--card);border:1px solid var(--line);
     color:var(--accent);font-size:12px;display:flex;align-items:center;justify-content:center;margin-left:8px}
   .dots button.pp:hover{border-color:rgba(26,166,165,.6)}
-  /* the finale market map */
-  .quad{width:min(520px,54%);height:auto;flex:0 1 auto}
-  @media (max-width:700px){ .quad{width:100%} }
+  /* the finale market map: title across the top, the chart big, the price line beneath */
+  .deck .slide.map{flex-direction:column;gap:10px}
+  .deck .slide.map .dl{text-align:center}
+  .quad{width:min(760px,97%);height:auto;flex:0 1 auto}
+  .deck .slide.map .dsub{text-align:center;margin-top:2px;max-width:46em}
   /* .chat: the conversation IS the story — big and bold; the mace rides its right edge, angled */
   .proof-shots.chat{position:relative}
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
@@ -418,10 +420,8 @@
             <p class="dsub">EMOM, circuits, AMRAP — <b>timed and scored out loud</b>.</p></div>
           <img data-src="assets/shot_challenges.jpg" alt="A month-long challenge with honest progress">
         </div>
-        <div class="slide">
-          <div class="scol"><div class="dl">The whole coach,<br>at <i>tracker prices</i>.</div>
-            <p class="dsub">$2 a month at launch — and scale moves it <b>down, never up</b>.<br>
-               And it opens as simple as the logbooks: <b>the coach only speaks when you ask</b>.</p></div>
+        <div class="slide map">
+          <div class="dl">The whole coach, at <i>tracker prices</i>.</div>
           <!-- The market map: every gym app forces a trade — record cheaply, or be coached dearly.
                The bottom-right corner was empty because it used to be impossible. It isn't now. -->
           <svg class="quad" viewBox="0 0 520 430" role="img"
@@ -462,6 +462,8 @@
             <text x="452" y="308" text-anchor="middle" fill="#EDF5F5" font-size="14.5" font-weight="800">PT-One</text>
             <text x="452" y="380" text-anchor="middle" fill="#1AA6A5" font-size="12" font-weight="700">$2 → $1, with scale</text>
           </svg>
+          <p class="dsub">$2 a month at launch — scale moves it <b>down, never up</b>. And it opens as simple as
+            the logbooks: <b>the coach only speaks when you ask</b>.</p>
         </div>
       </div>
       <div class="dots" aria-label="Slides"></div>
