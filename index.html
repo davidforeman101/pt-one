@@ -134,6 +134,14 @@
     box-shadow:0 24px 60px rgba(0,0,0,.7);background:#000}
   /* .tall: the image's story needs its full height (e.g. the phone going into the pocket) */
   .proof-shots.tall .fig{aspect-ratio:4/5;object-position:center 30%}
+  .proof-shots.tall .app{width:min(250px,42%)}          /* taller canvas earns a bigger screenshot */
+  .proof-shots.app-left .app{right:auto;left:20px;transform:rotate(-3deg)}   /* keep faces clear */
+  /* .chat: the conversation IS the story — big and bold, no physique */
+  .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
+    border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 55px rgba(0,0,0,.55)}
+  .orphoto{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px;color:var(--label);font-size:14.5px}
+  .orphoto img{width:64px;height:64px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .orphoto b{color:var(--text)}
   .proof-cap{margin-top:30px}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
 
@@ -306,7 +314,7 @@
     <p>Every exercise announced with a form cue, every rep and hold timed, both sides guided one at a time —
       and tempo work counted out loud: <b>"down… two… three… drive up."</b> The screen can stay dark; the only
       thing you do is the exercise.</p>
-    <div class="proof-shots">
+    <div class="proof-shots app-left">
       <img class="fig" data-src="assets/64_floor_session_home.jpg" alt="A push-up on the floor at home, chest working in ember" style="object-position:center 55%">
       <img class="app" data-src="assets/shot_floor_session.jpg" alt="A guided floor session, the hold counting down">
     </div>
@@ -330,9 +338,9 @@
     <div class="proof-head"><h3>New kit? Tell Petra.</h3><button class="proof-close" aria-label="Close">✕</button></div>
     <p>She doesn't just allow it — <b>she builds it in.</b> A steel mace, one message: equipment entry created,
       three exercises written with instructions and muscle maps, built into a session. You add the photos.</p>
-    <div class="proof-shots">
-      <img class="fig" data-src="assets/b20_newkit_card.jpg" alt="New kit? Tell Petra. She doesn't just allow it — she builds it in." style="object-fit:contain;background:#101616">
-      <img class="app" data-src="assets/shot_mace_chat.jpg" alt="One message to Petra — the mace installed, three exercises written">
+    <div class="proof-shots chat">
+      <img class="chatimg" data-src="assets/mace_convo.jpg" alt="The whole conversation: a 10 kg steel mace added, three exercises written, a session saved">
+      <div class="orphoto"><span>…or just <b>take a photo of it</b> and let Petra do the rest.</span></div>
     </div>
     <p class="proof-cap">Your kit. Your exercises. Built to order.</p>
   </div>
@@ -344,7 +352,7 @@
       One app. All of it. Use the part that's yours; ignore the rest.</p>
     <div class="proof-shots tall">
       <img class="fig" data-src="assets/44_commercial_floor.jpg" alt="A whole gym floor of racks and benches, receding into the dark">
-      <img class="app" data-src="assets/shot_ava_chat.jpg" alt="The AI coach turning a request into a playable session">
+      <img class="app" data-src="assets/coach_crop.jpg" alt="The Coach home — sessions, plans, the weekly review and Petra, one screen">
     </div>
     <p class="proof-cap">A whole gym in one room — a whole app category in one app.</p>
   </div>
