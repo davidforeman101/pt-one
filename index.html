@@ -210,6 +210,10 @@
      border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 50px rgba(0,0,0,.55);transform:rotate(2deg)}
   #handsfree .checks{display:block}
   #handsfree .checks li{margin-bottom:13px}
+  /* train: the bench press earns more of the row — text squashes over, the screen hangs off-left */
+  #train .split{grid-template-columns:.85fr 1.15fr}
+  #train .art .figure{width:min(480px,100%)}
+  #train .art .app.left{left:-26%;bottom:6%}   /* barely kisses the image edge — the bench stays on show */
   .art .figure::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg, transparent 58%, rgba(15,20,20,.5))}
   .art .app{position:absolute;bottom:-16px;width:min(170px,38%);border-radius:22px;overflow:hidden;
      border:1px solid rgba(173,219,219,.22);box-shadow:0 22px 55px rgba(0,0,0,.65);background:#000}
