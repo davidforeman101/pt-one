@@ -136,10 +136,10 @@
   .proof-shots.tall .fig{aspect-ratio:4/5;object-position:center 30%}
   .proof-shots.tall .app{width:min(250px,42%)}          /* taller canvas earns a bigger screenshot */
   .proof-shots.app-left .app{right:auto;left:20px;transform:rotate(-3deg)}   /* keep faces clear */
-  /* the spoken command, floating over the zero-taps image — page text, always crisp */
-  .speech{position:absolute;top:16px;left:16px;background:rgba(15,20,20,.82);backdrop-filter:blur(6px);
-    border:1.5px solid var(--accent);border-radius:16px 16px 16px 4px;padding:10px 16px;
-    font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.01em;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  /* the spoken command — plain quoted text at the bottom of the image, nothing bubble-ish */
+  .speech{position:absolute;left:0;right:0;bottom:0;padding:36px 18px 14px;text-align:left;
+    background:linear-gradient(180deg,transparent,rgba(10,14,14,.85));
+    font-size:19px;font-weight:800;color:var(--text);letter-spacing:-.01em}
   .speech i{font-style:normal;color:var(--accent)}
   /* .chat: the conversation IS the story — big and bold, no physique */
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
