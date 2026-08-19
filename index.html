@@ -145,10 +145,12 @@
   .proof-shots.chat{position:relative}
   .proof-shots.chat .chatimg{display:block;width:min(430px,86%);margin:0 auto;border-radius:20px;
     border:1px solid rgba(173,219,219,.2);box-shadow:0 20px 55px rgba(0,0,0,.55)}
-  .proof-shots.chat .mace{position:absolute;right:2%;bottom:-26px;width:min(185px,32%);
+  .proof-shots.chat .mace{position:absolute;right:1%;bottom:-30px;width:min(235px,38%);
     transform:rotate(4deg);border-radius:16px;border:1px solid rgba(173,219,219,.28);
     box-shadow:0 24px 60px rgba(0,0,0,.75)}
-  .orphoto{margin-top:40px;text-align:right;padding-right:2%;color:var(--label);font-size:14.5px}
+  /* the line sits directly UNDER the mace photo, wrapped to its width (two lines) */
+  .orphoto{margin:46px 1% 0 auto;width:min(235px,38%);text-align:center;
+    color:var(--label);font-size:14px;line-height:1.45}
   .orphoto b{color:var(--text)}
   .proof-cap{margin-top:30px}
   .proof-cap{margin-top:12px;font-size:12.5px;color:var(--muted);text-align:center}
@@ -351,7 +353,7 @@
       <img class="chatimg" data-src="assets/mace_convo.jpg" alt="The whole conversation: a 10 kg steel mace added, three exercises written, a session saved">
       <img class="mace" data-src="assets/93_steel_mace_still.jpg" alt="A steel mace against a dark gym wall">
     </div>
-    <div class="orphoto"><span>…or just <b>take a photo of it</b> and let Petra do the rest.</span></div>
+    <div class="orphoto"><span>…or just <b>take a photo of it</b><br>and let Petra do the rest.</span></div>
     <p class="proof-cap">Your kit. Your exercises. Built to order.</p>
   </div>
 </dialog>
