@@ -38,6 +38,8 @@
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800;font-size:18px;letter-spacing:-.01em;white-space:nowrap}
   .brand svg{width:30px;height:30px}
   .brand .one{color:var(--accent)}
+  /* the wordmark, inline in any copy: PT‑ stays the text's white, One goes teal */
+  .one{color:var(--accent)}
   .nav-links{display:flex;gap:4px;margin-left:auto;align-items:center}
   .nav-links a{color:var(--label);text-decoration:none;font-size:13.5px;font-weight:600;padding:7px 11px;border-radius:9px;border:1px solid transparent}
   .nav-links a:hover{color:var(--text)}
@@ -218,6 +220,9 @@
   .duo-txt h3{font-size:clamp(20px,2.2vw,24px);font-weight:800;letter-spacing:-.015em}
   .duo-txt p{margin-top:8px;font-size:15px;color:var(--label);line-height:1.5}
   .duo-txt p b{color:var(--text)}
+  .egrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .egrow .pill{font-size:12.5px;font-weight:700;letter-spacing:.02em;color:var(--accent);
+    background:rgba(26,166,165,.10);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
   @media (max-width:760px){ .duo{grid-template-columns:1fr} }
   /* the floated companion: text works around him */
   .floatright{float:right;width:min(230px,44%);margin:4px 0 14px 18px;border-radius:20px;
@@ -414,7 +419,7 @@
     <div>
       <span class="kicker">iPhone + Apple Watch · in TestFlight</span>
       <h1 class="big">The coach that <em>carries you</em> through it.</h1>
-      <p class="lead">A plan is easy. Doing it is the hard part — and that's the part PT‑One carries
+      <p class="lead">A plan is easy. Doing it is the hard part — and that's the part PT‑<span class="one">One</span> carries
         you through. It speaks each exercise, counts you in, times every rep, hold and rest, and tells
         you when to switch sides. Your phone stays in your pocket. You just follow along.</p>
       <p class="press">Press play. Follow the voice. Do your exercises.</p>
@@ -451,7 +456,7 @@
 <dialog class="proof" id="p-zerotaps">
   <div class="proof-in">
     <div class="proof-head"><h3>Zero taps. Genuinely zero.</h3><button class="proof-close" aria-label="Close">✕</button></div>
-    <p>Frictionless logging is table stakes for a great gym app — PT‑One matched it, then removed the last tap.
+    <p>Frictionless logging is table stakes for a great gym app — PT‑<span class="one">One</span> matched it, then removed the last tap.
       <b>"Petra, log eight."</b> Done, mid-set, with chalk on your hands. Rests start themselves, timed sets tick
       themselves off, and the whole session runs from your wrist while the phone charges in another room.</p>
     <div class="proof-shots tall">
@@ -578,7 +583,7 @@
             <circle cx="450" cy="322" r="17.5" fill="none" stroke="#1AA6A5" stroke-width="7.8"/>
             <circle cx="463" cy="309" r="10.3" fill="#FFFFFF"/>
             <circle cx="463" cy="309" r="8.4" fill="#FF9500"/>
-            <text x="498" y="242" text-anchor="end" fill="#EDF5F5" font-size="17" font-weight="800">PT‑One</text>
+            <text x="498" y="242" text-anchor="end" font-size="17" font-weight="800"><tspan fill="#EDF5F5">PT‑</tspan><tspan fill="#1AA6A5">One</tspan></text>
             <text x="498" y="260" text-anchor="end" font-size="13.5" font-weight="800"><tspan fill="#EDF5F5">feature-rich </tspan><tspan fill="#1AA6A5">AND cheap</tspan></text>
           </svg>
           <p class="dsub">Priced with the logbooks — not the coaches.<br>
@@ -633,7 +638,7 @@
         <div class="pair"><p class="you">"Circuits, EMOM, AMRAP. I train hard."</p>
           <p class="us"><i>IN HERE.</i> Timed, spoken and scored. Benchmarks included.</p></div>
         <div class="pair"><p class="you">"I'm rebuilding after an injury."</p>
-          <p class="us"><i>IN HERE.</i> It's where PT‑One began.</p></div>
+          <p class="us"><i>IN HERE.</i> It's where PT‑<span class="one">One</span> began.</p></div>
         <div class="pair"><p class="you">"Honestly? All of the above."</p>
           <p class="us">That's the point. <i>ONE APP.</i> For you, and you, and you.</p></div>
       </div>
@@ -649,7 +654,7 @@
         <div class="kicker2">Hands-free guided sessions</div>
         <h2>It speaks. You move. That's the whole deal.</h2>
         <p class="sub">Mid-stretch, on the floor, hands full — that's exactly when tapping a phone fails you.
-          PT‑One runs the session for you, out loud, from the first "get ready" to the last "done".</p>
+          PT‑<span class="one">One</span> runs the session for you, out loud, from the first "get ready" to the last "done".</p>
         <!-- pushed down so he sits beside the wrist line — the watch copy next to the watch man -->
         <img class="floatright" src="assets/24_watchcheck_man.jpg" alt="An athlete glancing at the glowing watch on his wrist" loading="lazy" width="928" height="1152" style="margin-top:128px">
 
@@ -680,7 +685,7 @@
         <h2>Every format. Every pace. <span class="em">Your</span> rules.</h2>
         <img class="floatphone" src="assets/shot_bench_run.jpg" alt="The same bench press running in PT-One — set, reps and bar loaded" loading="lazy" width="800" height="1739">
         <p class="sub">Straight sets, timed holds, flowing circuits, every-minute rounds, benchmark AMRAPs —
-          and the same calm voice runs them all. However you train, PT‑One already speaks it.</p>
+          and the same calm voice runs them all. However you train, PT‑<span class="one">One</span> already speaks it.</p>
         <ul class="checks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#1AA6A5" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Edit mid-session</b> — swap an exercise, add a set, change a weight while it runs. The session bends; it never breaks.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="#1AA6A5" stroke-width="2.4" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Supersets &amp; drop sets</b> — paired work runs back-to-back in lockstep, spoken.</span></li>
@@ -728,7 +733,7 @@
   <div class="wrap reveal">
     <div class="kicker2">What makes it different</div>
     <h2>Honest is a feature.</h2>
-    <p class="sub">PT‑One cheers you loudly — PBs, medals, streaks, the final-set push — and it never fakes one.
+    <p class="sub">PT‑<span class="one">One</span> cheers you loudly — PBs, medals, streaks, the final-set push — and it never fakes one.
       No invented scores, no confetti for logging in, no new number to keep on top of.
       <b style="color:var(--text)">When this app celebrates, it's because you did it.</b></p>
     <div class="cheers">
@@ -784,21 +789,23 @@
     <div class="duo">
       <div class="duo-item reveal">
         <div class="art">
-          <div class="figure"><img src="assets/79_goal_pullupbar_f_void.jpg" alt="A woman standing beneath the pull-up bar, looking up at the goal" loading="lazy" width="928" height="1152"></div>
+          <div class="figure"><img src="assets/55_pullup_ladder.jpg" alt="Four figures on the bar — dead hang to chin-over, the last one lit ember: the route to the goal" loading="lazy" width="928" height="1152"></div>
           <div class="app right"><img src="assets/shot_target_progress.jpg" alt="The target — 10 pull-ups in a set, best so far 5, the route drawn" loading="lazy" width="800" height="1739"></div>
         </div>
         <div class="duo-txt"><h3>Targets</h3>
           <p>"Get stronger" isn't a plan. <b>"Session 9 of 24 on the road to your first chin-up"</b> is.
-             Pick the goal, see the whole route before step one.</p></div>
+             Pick the goal, see the whole route before step one.</p>
+          <div class="egrow"><span class="pill">First chin-up</span><span class="pill">10 pull-ups in one set</span><span class="pill">100 kg squat</span><span class="pill">A full dead hang</span></div></div>
       </div>
       <div class="duo-item reveal">
         <div class="art">
-          <div class="figure"><img src="assets/18_female_midpullup_ember.jpg" alt="A woman mid pull-up, lats glowing ember — today's work, being done" loading="lazy" width="928" height="1152"></div>
+          <div class="figure"><img src="assets/87_adding_plate_m_gym.jpg" alt="Loading another plate onto the bar, forearms glowing ember — showing up, again" loading="lazy" width="928" height="1152"></div>
           <div class="app left"><img src="assets/shot_challenges.jpg" alt="The challenge — 50 pull-ups a day, today's count already in" loading="lazy" width="800" height="1739"></div>
         </div>
         <div class="duo-txt"><h3>Challenges</h3>
-          <p>One clear thing a day for a month. Life intervenes? <b>It pauses and extends.</b>
-             The only way to fail is to stop forever.</p></div>
+          <p>One clear thing a day for a month — or your normal week, planned and kept. Life intervenes?
+             <b>It pauses and extends.</b> The only way to fail is to stop forever.</p>
+          <div class="egrow"><span class="pill">50 press-ups a day for a month</span><span class="pill">4 sessions a week, kept</span><span class="pill">Your normal week, ticked off</span></div></div>
       </div>
     </div>
   </div>
@@ -849,7 +856,7 @@
       <div class="card text-only reveal">
         <div class="txt">
           <div class="pillrow"><span class="pill emb">HONEST BY DESIGN</span></div>
-          <h3>Never interpreted, always shown</h3><p>PT‑One shows the data and lets you draw the conclusions. If a number would be a guess, there is no number — that's a promise, not a limitation.</p></div>
+          <h3>Never interpreted, always shown</h3><p>PT‑<span class="one">One</span> shows the data and lets you draw the conclusions. If a number would be a guess, there is no number — that's a promise, not a limitation.</p></div>
       </div>
     </div>
   </div>
@@ -862,7 +869,7 @@
       <div class="reveal">
         <div class="kicker2">The library &amp; your kit</div>
         <h2>1,800+ exercises. Filtered to what you actually own.</h2>
-        <p class="sub">Tell PT‑One what you've got — a full rack, a pair of dumbbells, or nothing but floor —
+        <p class="sub">Tell PT‑<span class="one">One</span> what you've got — a full rack, a pair of dumbbells, or nothing but floor —
           and everything adjusts: sessions built from your kit, swaps suggested from your kit, nothing
           prescribed that you can't actually do. Hotel gym this week? Say so, and the plan reshapes itself.</p>
         <ul class="checks">
@@ -906,7 +913,7 @@
     <div class="reveal">
       <div class="kicker2">Petra — the coach in your corner</div>
       <h2>Ask for a change. Get a session.</h2>
-      <p class="sub">Petra is the coach inside PT‑One: ask her to build a session for the kit you have, swap an
+      <p class="sub">Petra is the coach inside PT‑<span class="one">One</span>: ask her to build a session for the kit you have, swap an
         exercise that isn't working, or explain why today looks the way it does — and the answer lands as a
         real, playable session, not a paragraph of advice.</p>
       <div class="quotebar">
@@ -952,7 +959,7 @@
 <section class="closing" style="padding-top:40px">
   <div class="wrap reveal">
     <h2>The plan was never the problem.<br>Doing it was.</h2>
-    <p class="sub" style="margin-left:auto;margin-right:auto">PT‑One runs your session out loud — every rep timed, every move spoken,
+    <p class="sub" style="margin-left:auto;margin-right:auto">PT‑<span class="one">One</span> runs your session out loud — every rep timed, every move spoken,
       hands-free from first stretch to full strength. In TestFlight now, public launch soon.</p>
     <div class="cta-row" style="justify-content:center">
       <a class="btn btn-primary" href="mailto:ptoneadmin@gmail.com?subject=PT-One%20early%20access">Get early access</a>
@@ -965,13 +972,13 @@
 <footer>
   <div class="wrap">
     <div class="foot-in">
-      <span>&copy; 2026 PT‑One</span>
+      <span>&copy; 2026 PT‑<span class="one">One</span></span>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
       <a href="mailto:ptoneadmin@gmail.com">ptoneadmin@gmail.com</a>
     </div>
-    <p class="foot-legal">PT‑One is a guidance and adherence tool, not a medical device — it never diagnoses or
-      treats. If you've been given exercises by a clinician, PT‑One helps you follow them, always alongside their
+    <p class="foot-legal">PT‑<span class="one">One</span> is a guidance and adherence tool, not a medical device — it never diagnoses or
+      treats. If you've been given exercises by a clinician, PT‑<span class="one">One</span> helps you follow them, always alongside their
       advice and never instead of it. Apple, iPhone and Apple Watch are trademarks of Apple Inc.</p>
   </div>
 </footer>
@@ -1076,7 +1083,7 @@
   lb.innerHTML = '<img alt="">';
   document.body.appendChild(lb);
   const lbimg = lb.querySelector('img');
-  document.querySelectorAll('.card .shot img, .cheer .shotwin img').forEach(t => {
+  document.querySelectorAll('.card .shot img, .cheer .shotwin img, .art .app img, .floatphone').forEach(t => {
     t.style.cursor = 'zoom-in';
     t.addEventListener('click', () => { lbimg.src = t.src; lb.showModal(); });
   });
