@@ -250,8 +250,20 @@
   .checks svg{width:18px;height:18px;flex:none;margin-top:3px}
   @media (max-width:880px){
     .split{grid-template-columns:1fr;gap:40px}
+    #train .split{grid-template-columns:1fr}   /* the ID rule above outguns the generic collapse */
     .split.rev > .art{order:0}
     .art{margin-bottom:10px}
+  }
+  /* Small screens: floats release — a floated phone/figure next to a 200px text column turns
+     every sentence into a one-word ladder. Full-width blocks instead, centred, text flows whole. */
+  @media (max-width:700px){
+    section{padding:64px 0}
+    .floatright{float:none;display:block;width:min(300px,86%);margin:18px auto !important;transform:rotate(0deg)}
+    #train .floatphone{float:none;display:block;width:min(230px,64%);margin:18px auto}
+    /* Petra's solo chat shot: window it top-anchored so its quiet lower half can't strand
+       a whole empty screenful mid-scroll */
+    .app-solo img{display:block;width:100%;height:540px;object-fit:cover;object-position:top}
+    .art2{gap:12px}
   }
 
   /* ---------- feature grids ---------- */
