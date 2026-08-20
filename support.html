@@ -1,11 +1,63 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PT-One — Support</title><style>
-body{margin:0;background:#fbfcfd;color:#1c2430;font:16px/1.65 -apple-system,BlinkMacSystemFont,sans-serif}
-.w{max-width:760px;margin:0 auto;padding:44px 24px 90px}h1{font-size:26px;margin:0 0 12px}p{font-size:15.5px}
-</style></head><body><div class="w">
-<h1>PT-One — Support</h1>
-<p>The fastest way to reach us is the <b>feedback button inside the app</b> (Profile → Your feedback) —
-it can attach a screenshot and goes straight to the developer.</p>
-<p>Or email <b>david.foreman101@gmail.com</b> and we'll get back to you.</p>
+<title>PT-One — Support</title>
+<meta name="description" content="PT-One support — reach us from inside the app or by email.">
+<meta name="theme-color" content="#0F1414">
+<style>
+  :root{
+    --bg:#0F1414; --bg2:#131A1A; --card:#1F2424; --line:rgba(26,166,165,.18);
+    --text:#EDF5F5; --label:#ADDBDB; --muted:#7FA8A8;
+    --accent:#1AA6A5; --deep:#0F5252; --ember:#FF9500;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif}
+  a{color:var(--accent)}
+  .one{color:var(--accent)}
+  .nav{position:sticky;top:0;z-index:10;background:rgba(15,20,20,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1120px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:800;font-size:19px}
+  .brand svg{width:34px;height:34px;border-radius:9px}
+  .backlink{color:var(--label);text-decoration:none;font-weight:600;font-size:15px}
+  .backlink:hover{color:var(--text)}
+  .w{max-width:760px;margin:0 auto;padding:44px 24px 90px}
+  .kicker2{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+  h1{font-size:clamp(26px,4vw,34px);line-height:1.15;margin:0 0 18px;letter-spacing:-.01em}
+  p{font-size:15.5px;color:var(--label);margin:10px 0}
+  b{color:var(--text)}
+  .box{border-left:4px solid var(--accent);background:var(--card);padding:13px 16px;border-radius:0 10px 10px 0;margin:16px 0;color:var(--label)}
+  .foot{border-top:1px solid var(--line);margin-top:46px;padding-top:20px;font-size:13.5px;color:var(--muted)}
+  .foot a{color:var(--label);text-decoration:none;margin-right:18px}
+  .foot a:hover{color:var(--text)}
+</style></head><body>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html" aria-label="PT-One home">
+      <svg viewBox="0 0 180 180" role="img" aria-hidden="true">
+        <defs>
+          <mask id="carve"><rect width="180" height="180" fill="#000"/>
+            <circle cx="90" cy="90" r="58" fill="none" stroke="#fff" stroke-width="23.4"/>
+            <circle cx="131" cy="49" r="33.1" fill="#000"/></mask>
+        </defs>
+        <rect width="180" height="180" rx="40" fill="#FFFFFF"/>
+        <rect width="180" height="180" rx="40" fill="#1AA6A5" mask="url(#carve)"/>
+        <circle cx="131" cy="49" r="27.9" fill="#FF9500"/>
+      </svg>
+      <span>PT-<span class="one">One</span></span>
+    </a>
+    <a class="backlink" href="index.html">&larr; Back to the main page</a>
+  </div>
+</header>
+
+<div class="w">
+<div class="kicker2">We read everything</div>
+<h1>PT‑<span class="one">One</span> — Support</h1>
+<div class="box">The fastest way to reach us is the <b>feedback button inside the app</b>
+(Profile &rarr; Your feedback) — it can attach a screenshot and goes straight to the developer.</div>
+<p>Or email <b><a href="mailto:ptoneadmin@gmail.com">ptoneadmin@gmail.com</a></b> and we'll get back to you.</p>
 <p><a href="privacy.html">Privacy policy</a></p>
+
+<div class="foot">
+  <a href="index.html">&larr; Back to the main page</a>
+  <a href="privacy.html">Privacy</a>
+</div>
 </div></body></html>
