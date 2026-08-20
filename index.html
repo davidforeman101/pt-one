@@ -325,6 +325,23 @@
   .creed p{font-size:14.5px;color:var(--label)}
   .creed em{color:var(--ember);font-style:normal;font-weight:700}
   @media (max-width:860px){ .creed{grid-template-columns:1fr} }
+  /* the earned cheers — celebration with receipts */
+  .cheers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;text-align:left}
+  .cheer{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+  .cheer .shotwin{height:250px;overflow:hidden;display:flex;justify-content:center;padding:16px 16px 0;
+    background:linear-gradient(180deg,#101616,#0B0F0F)}
+  .cheer .shotwin img{width:74%;border-radius:14px 14px 0 0;border:1px solid rgba(173,219,219,.16);
+    border-bottom:none;object-fit:cover;object-position:top;cursor:zoom-in;height:auto}
+  .cheer .ctxt{padding:15px 16px 17px}
+  .cheer .ctxt b{display:block;font-size:17.5px;font-weight:800;color:var(--text);letter-spacing:-.01em}
+  .cheer .ctxt span{display:block;margin-top:6px;font-size:13.5px;color:var(--label);line-height:1.45}
+  .cheer.voice{justify-content:center;background:
+    radial-gradient(240px 160px at 50% 30%, rgba(255,149,0,.10), transparent 70%), var(--card)}
+  .cheer.voice .bigline{font-size:clamp(24px,2.6vw,30px);font-weight:800;color:var(--text);letter-spacing:-.02em;line-height:1.2}
+  .cheer.voice .bigline i{font-style:normal;color:var(--ember)}
+  .cheer.voice .ctxt span:last-child{margin-top:12px;font-size:14px}
+  @media (max-width:960px){ .cheers{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:620px){ .cheers{grid-template-columns:1fr} }
 
   /* ---------- petra ---------- */
   .petra-bg{background:radial-gradient(900px 460px at 15% 0%, rgba(26,166,165,.13), transparent 65%), var(--bg2);
@@ -699,18 +716,36 @@
 </section>
 
 <!-- ================= HONESTY MANIFESTO ================= -->
-<section class="manifesto" id="honest" style="padding:64px 0">
+<section class="manifesto" id="honest" style="padding:76px 0">
   <div class="wrap reveal">
     <div class="kicker2">What makes it different</div>
     <h2>Honest is a feature.</h2>
-    <p class="sub">PT‑One doesn't guilt-trip you, inflate your progress, or invent a wellness score to keep you
-      tapping. The app shows you your data and lets you draw the conclusions — it never pretends to know your
-      body better than you do.</p>
-    <div class="creed">
-      <div><b>No streak guilt</b><p>Take a week off and your streak <em>bridges it</em>. Time away is life, not failure — challenges pause and extend instead of collapsing.</p></div>
-      <div><b>No made-up scores</b><p>If a number would be a guess, we don't show the number. Plain figures, real evidence, and a recovery clock <em>you</em> control.</p></div>
-      <div><b>No dark patterns</b><p>No nagging, no fake urgency, no "one weird trick". We'd rather under-promise than over-coach — the honesty <em>is</em> the brand.</p></div>
+    <p class="sub">PT‑One cheers you loudly — PBs, medals, streaks, the final-set push — and it never fakes one.
+      No invented scores, no confetti for logging in, no new number to keep on top of.
+      <b style="color:var(--text)">When this app celebrates, it's because you did it.</b></p>
+    <div class="cheers">
+      <div class="cheer reveal">
+        <div class="shotwin"><img src="assets/shot_coach.jpg" alt="The home greeting — Evening, Fred. You're 45 days on the trot." loading="lazy"></div>
+        <div class="ctxt"><b>"45 days on the trot."</b>
+          <span>A streak that bridges life instead of dying on it — so the number is real, and worth defending.</span></div>
+      </div>
+      <div class="cheer reveal">
+        <div class="shotwin"><img src="assets/cap_cabinet.jpg" alt="The medal cabinet — 43 medals, the next ones within reach" loading="lazy"></div>
+        <div class="ctxt"><b>Real metal, minted from history.</b>
+          <span>Every medal is a pure function of what you've actually done. Nothing for logging in. Ever.</span></div>
+      </div>
+      <div class="cheer voice reveal">
+        <div class="ctxt"><span class="bigline">"Last one. <i>Go for it!</i>"</span>
+          <span>She pushes hard at the one moment in a session that's earned it — and never guilts you when it isn't.</span></div>
+      </div>
+      <div class="cheer reveal">
+        <div class="shotwin"><img src="assets/shot_review.jpg" alt="The weekly report celebrating real personal bests" loading="lazy"></div>
+        <div class="ctxt"><b>"New personal record."</b>
+          <span>Confetti, trophy, the lot — fired only when you beat what you'd actually done before.</span></div>
+      </div>
     </div>
+    <p class="sub" style="margin:36px auto 0;text-align:center"><b style="color:var(--text)">And when there's nothing true to celebrate? Silence.</b>
+      That's why you can believe the rest — the numbers, the streaks, the price. Honesty, always.</p>
   </div>
 </section>
 
@@ -1025,7 +1060,7 @@
   lb.innerHTML = '<img alt="">';
   document.body.appendChild(lb);
   const lbimg = lb.querySelector('img');
-  document.querySelectorAll('.card .shot img').forEach(t => {
+  document.querySelectorAll('.card .shot img, .cheer .shotwin img').forEach(t => {
     t.style.cursor = 'zoom-in';
     t.addEventListener('click', () => { lbimg.src = t.src; lb.showModal(); });
   });
