@@ -273,13 +273,17 @@
     padding:54px 22px 40px;border:1px solid var(--line);overflow:hidden;
     background:radial-gradient(500px 260px at 50% 0%, rgba(26,166,165,.14), transparent 70%),
                linear-gradient(180deg,#131A1A,#0B0F0F)}
-  .stage-label{font-size:12.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
-  .stage-line{margin-top:22px;font-size:clamp(26px,4.6vw,46px);font-weight:800;letter-spacing:-.02em;
+  .stage-label{font-size:clamp(19px,2.6vw,26px);font-weight:800;letter-spacing:-.01em;color:var(--text)}
+  .stage-label .tempo-btn{font:inherit;font-size:.85em;font-weight:800;letter-spacing:.04em;
+    color:var(--accent);background:rgba(26,166,165,.12);border:1px solid var(--line);
+    border-radius:99px;padding:2px 14px 4px;cursor:pointer;vertical-align:2px}
+  .stage-label .tempo-btn:hover{border-color:rgba(26,166,165,.6);background:rgba(26,166,165,.2)}
+  .stage-line{margin-top:20px;font-size:clamp(26px,4.6vw,46px);font-weight:800;letter-spacing:-.02em;
     color:var(--text);min-height:2.3em;line-height:1.15}
   .stage-line::after{content:"";display:inline-block;width:3px;height:.9em;background:var(--accent);
     margin-left:6px;vertical-align:-.1em;animation:caret 1s steps(1) infinite}
   @keyframes caret{50%{opacity:0}}
-  .stage-extra{min-height:44px;margin-top:10px;display:flex;justify-content:center;align-items:center}
+  .stage-extra{min-height:36px;margin-top:4px;display:flex;justify-content:center;align-items:center}
   .restbar{display:none;width:min(420px,80%);height:10px;border-radius:99px;background:rgba(173,219,219,.14);overflow:hidden}
   .restbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--deep),var(--accent));border-radius:99px}
   .restbar.on{display:block}
@@ -288,16 +292,16 @@
   .fmt-pills{display:none;gap:10px}
   .fmt-pills.on{display:flex}
   .fmt-pills .pill{font-size:13px;padding:6px 14px}
-  .stage-wave{display:flex;gap:5px;justify-content:center;align-items:flex-end;height:22px;margin-top:18px}
-  .stage-wave i{width:5px;border-radius:3px;background:var(--accent);height:6px;opacity:.85}
+  .stage-wave{display:flex;gap:8px;justify-content:center;align-items:flex-end;height:44px;margin-top:20px}
+  .stage-wave i{width:9px;border-radius:5px;background:var(--accent);height:11px;opacity:.85}
   .stage.playing .stage-wave i{animation:eq 1s ease-in-out infinite}
   .stage.playing .stage-wave i:nth-child(2){animation-delay:.15s}
   .stage.playing .stage-wave i:nth-child(3){animation-delay:.3s}
   .stage.playing .stage-wave i:nth-child(4){animation-delay:.45s}
   .stage.playing .stage-wave i:nth-child(5){animation-delay:.6s}
-  @keyframes eq{0%,100%{height:6px}50%{height:22px}}
+  @keyframes eq{0%,100%{height:11px}50%{height:44px}}
   .stage-pp{position:absolute;top:16px;right:16px}
-  .stage-note{margin-top:20px;font-size:12.5px;color:var(--muted)}
+  .stage-note{margin-top:20px;font-size:15px;color:var(--label)}
   @media (prefers-reduced-motion:reduce){ .stage-line::after{animation:none} }
 
   /* ---------- the posters ---------- */
@@ -666,7 +670,7 @@
          Every line below is one the app genuinely speaks; the band is a dramatisation of a real
          session's beats, typed out as Petra would say them. -->
     <div class="stage reveal" id="liveband">
-      <div class="stage-label">A session, as Petra runs it</div>
+      <div class="stage-label">A session, as Petra runs it — <button class="tempo-btn" id="jumpTempo">tempo</button> and all.</div>
       <div class="stage-line" id="stageLine" aria-live="off">Barbell bench press. Set 2 of 4.</div>
       <div class="stage-extra" id="stageExtra">
         <div class="restbar" id="restBar"><i></i></div>
@@ -1005,6 +1009,9 @@
       if (playing) showBeat(idx); else { clearInterval(typeTimer); clearTimeout(beatTimer); }
     }
     pp.addEventListener('click', () => { visible = true; setPlay(!playing); });
+    // the tempo button drops the band straight onto the counted rep
+    const jt = document.getElementById('jumpTempo');
+    if (jt) jt.addEventListener('click', () => { visible = true; idx = 2; setPlay(true); showBeat(2); });
     new IntersectionObserver(es => es.forEach(e => {
       visible = e.isIntersecting;
       if (!e.isIntersecting) setPlay(false);
